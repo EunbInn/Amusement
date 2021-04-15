@@ -4,8 +4,9 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 public class CalculatePrice {
-
 	public int calculateAge(String inputYear) {
+
+
 		Calendar cal = Calendar.getInstance();
 		SimpleDateFormat year = new SimpleDateFormat("yyyy");// 년도 포맷
 		SimpleDateFormat date = new SimpleDateFormat("MMdd");// 날짜 포맷
@@ -41,7 +42,7 @@ public class CalculatePrice {
 		return getAgeGroup(age);
 	}
 
-	public int getAgeGroup(int age) {
+	private int getAgeGroup(int age) {
 		final int childMin = 3;// 나이대별 민맥스 상수화
 		final int childMax = 12;
 		final int teenMin = 13;
@@ -67,14 +68,14 @@ public class CalculatePrice {
 			ageGroup = SetData.old;
 
 		}
-
+		
 		return ageGroup; // 구분된 그룹 번호 리턴
 	}
 
-	public int calPrice(int dayNight, int ageGroup, int ticket, int pref) {
+	public int calPrice(int dayNight, int ageGroup, int ticket, int pref) {		
 		int rawPrice = 0;
 		int realPrice = 0;
-		System.out.println(ageGroup);
+
 		if (dayNight == 1) {
 			rawPrice = SetData.dayPrice[ageGroup - 1];
 
@@ -85,20 +86,6 @@ public class CalculatePrice {
 		realPrice = (int) (rawPrice * ticket * SetData.discount[pref - 1]);
 		return realPrice;
 
-	}
-
-	public int[][] savePrice(int dayNight, int ageGroup, int ticket, int price, int pref) {
-		// 주야권 여부, 누가 샀는지,총 몇장 샀는지 그룹별 총 금액이 얼마인지 그룹별 우대적용이 있는지 없는지 ----> 총액
-		int arrAge = ageGroup - 1;
-		int[][] saveData = new int[5][5];
-
-		saveData[arrAge][0] = dayNight; // 주간권 여부
-		saveData[arrAge][1] = ageGroup;
-		saveData[arrAge][2] = ticket;
-		saveData[arrAge][3] = price;
-		saveData[arrAge][4] = pref;
-
-		return saveData;
 	}
 
 	int sum = 0;

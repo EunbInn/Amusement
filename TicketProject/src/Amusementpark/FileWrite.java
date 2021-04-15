@@ -8,15 +8,14 @@ import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.io.UnsupportedEncodingException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 
 public class FileWrite {
+	
 	public void fileWrite(String result) {
-		Calendar cal = Calendar.getInstance();
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
-		BufferedWriter bw;
 		
-		result = "\"" + sdf.format(cal.getTime()) + "\"," + result;
+		BufferedWriter bw;
 
 		try {
 			File file = new File(SetData.filePath + "amuse.csv");
@@ -41,14 +40,29 @@ public class FileWrite {
 		} catch (IOException io) {
 			io.getStackTrace();
 		}
-
 	}
-
-	public String resultCombine(int dayNight, int ageGroup, int ticket, int price, int pref) {
-		String writeCom = "";
-
-		writeCom = String.format("\"%d\",\"%d\",\"%d\",\"%d\",\"%d\"\n", dayNight, ageGroup, ticket, price, pref);
-		return writeCom;
+	
+	public String dateReturn() { //파일 입력할 날짜 리턴
+		Calendar cal = Calendar.getInstance();
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
+		
+		return sdf.format(cal.getTime());
+	}
+	//파일 입력할 내용 리턴
+	public void resultCombine(ArrayList<SaveData> sd) { 
+		
+		for (int index = 0; index < sd.size(); index++) {
+			String dayNight = sd.get(index).getDayNight();
+			String ageGroup = sd.get(index).getAgeGroup();
+			int ticket = sd.get(index).getTicket();
+			int price = sd.get(index).getPrice();
+			String pref = sd.get(index).getPreference();
+			String writeCom = "";
+		
+		writeCom = String.format("\"%s\",\"%s\",\"%s\",\"%d\",\"%d\",\"%s\"\n", 
+				dateReturn(), dayNight, ageGroup, ticket, price, pref);
+		fileWrite(writeCom);
+		}
 	}
 
 	public String firstLine() {

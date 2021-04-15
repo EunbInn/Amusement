@@ -17,9 +17,14 @@ public class GetInput {
 		return choice;
 	}
 	
-	public int inputTicketNum() {
+	public int inputTicketNum() {//티켓 개수 받기
 		print.ticketNumber();
 		int number = sc.nextInt();
+		
+		while (number > SetData.ticketMax) { //발권 가능 최대 값 넘으면 다시 입력 요청
+			System.out.println("다시 입력해주세요");
+			number = sc.nextInt();
+		}
 		
 		return number;
 	}
@@ -48,6 +53,11 @@ public class GetInput {
 		print.IDNumber();
 		sc = new Scanner(System.in);
 		String idNum = sc.nextLine();
+		
+		while (idNum.length() < 8 || idNum.charAt(6) == '-') { // -가 들어가거나 8자리 아래로 입력하면 재입력 요구
+			System.out.println("다시 입력해주세요");
+			idNum = sc.nextLine();
+		}
 		
 		return idNum;
 	}
