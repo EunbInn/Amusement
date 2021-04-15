@@ -43,28 +43,22 @@ public class CalculatePrice {
 	}
 
 	private int getAgeGroup(int age) {
-		final int childMin = 3;// 나이대별 민맥스 상수화
-		final int childMax = 12;
-		final int teenMin = 13;
-		final int teenMax = 18;
-		final int adultMin = 19;
-		final int adultMax = 64;
-
+		
 		int ageGroup = 0;
 		// 나이별 그룹 번호 구분
-		if (age < childMin) {
+		if (age < SetData.childMin) {
 			ageGroup = SetData.baby;
 
-		} else if (age >= childMin && age <= childMax) {
+		} else if (age >= SetData.childMin && age <= SetData.childMax) {
 			ageGroup = SetData.child;
 
-		} else if (age >= teenMin && age <= teenMax) {
+		} else if (age >= SetData.teenMin && age <= SetData.teenMax) {
 			ageGroup = SetData.teen;
 
-		} else if (age >= adultMin && age <= adultMax) {
+		} else if (age >= SetData.adultMin && age <= SetData.adultMax) {
 			ageGroup = SetData.adult;
 
-		} else if (age > adultMax) {
+		} else if (age > SetData.adultMax) {
 			ageGroup = SetData.old;
 
 		}
