@@ -35,10 +35,11 @@ public class PrintMenu {
 		System.out.println("========================== 코포랜드 ============================");
 
 		for (int i = 0; i < saveArr.size(); i++) {
+			SaveData print = saveArr.get(i);
 				System.out.printf("%s %s  x  %d\t%d\t우대 내역: %s\n", 
-						saveArr.get(i).getDayNight(), saveArr.get(i).getAgeGroup(),
-						saveArr.get(i).getTicket(), saveArr.get(i).getPrice(),
-						saveArr.get(i).getPreference());			
+						print.getDayNight(), print.getAgeGroup(),
+						print.getTicket(), print.getPrice(),
+						print.getPreference());			
 		}
 
 		System.out.printf("\n\n입장료 총액은 %d원 입니다.\n", sumPrice);
