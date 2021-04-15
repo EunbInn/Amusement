@@ -30,6 +30,7 @@ public class Main {
 
 				price = calP.calPrice(inputDayNight, ageGroup, inputTicket, inputPref); // 구매가격 리턴
 				sumPrice = calP.sumPrice(price);
+				
 				saveData = calP.savePrice(inputDayNight, ageGroup, inputTicket, price, inputPref); // 결과 세이브
 				printData = pm.getPrintResult(saveData);
 				inputMore = input.inputMore(price); // 회당 구매 결과 출력 및 구매 계속 여부 리턴
