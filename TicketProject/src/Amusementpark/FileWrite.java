@@ -18,16 +18,16 @@ public class FileWrite {
 		BufferedWriter bw;
 
 		try {
-			File file = new File(SetData.filePath + "amuse.csv");
+			File file = new File(SetData.filePath);
 
 			if (file.exists() == false) {
 				bw = new BufferedWriter(
-						new OutputStreamWriter(new FileOutputStream(SetData.filePath + "amuse.csv", true), "MS949"));
+						new OutputStreamWriter(new FileOutputStream(SetData.filePath , true), "MS949"));
 				bw.write(firstLine());
 				bw.write(result);
 			} else {
 				bw = new BufferedWriter(
-						new OutputStreamWriter(new FileOutputStream(SetData.filePath + "amuse.csv", true), "MS949"));
+						new OutputStreamWriter(new FileOutputStream(SetData.filePath , true), "MS949"));
 				bw.write(result);
 			}
 			
@@ -52,21 +52,18 @@ public class FileWrite {
 	public void resultCombine(ArrayList<SaveData> sd) { 
 		
 		for (int index = 0; index < sd.size(); index++) {
-			String dayNight = sd.get(index).getDayNight();
-			String ageGroup = sd.get(index).getAgeGroup();
-			int ticket = sd.get(index).getTicket();
-			int price = sd.get(index).getPrice();
-			String pref = sd.get(index).getPreference();
+			SaveData com = sd.get(index);
 			String writeCom = "";
 		
-		writeCom = String.format("\"%s\",\"%s\",\"%s\",\"%d\",\"%d\",\"%s\"\n", 
-				dateReturn(), dayNight, ageGroup, ticket, price, pref);
-		fileWrite(writeCom);
+			writeCom = String.format("%s,%s,%s,%d,%d,%s\n", 
+					dateReturn(), com.getDayNight(), com.getAgeGroup(), 
+					com.getTicket(), com.getPrice(), com.getPreference());
+			fileWrite(writeCom);
 		}
 	}
 
 	public String firstLine() {
-		String first = "\"날짜\",\"권종\",\"연령구분\",\"수량\",\"가격\",\"우대사항\"\n";
+		String first = "날짜,권종,연령구분,수량,가격,우대사항\n";
 
 		return first;
 	}
