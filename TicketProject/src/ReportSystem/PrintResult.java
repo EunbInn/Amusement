@@ -22,4 +22,18 @@ public class PrintResult {
 		}
 		System.out.println("============================================================");
 	}
+	
+	public void ticketSaleStatus(int[] dayTicket,int[] nightTicket,int[] dayAgeT,int[] nightAgeT) {
+		System.out.println("\n\n==================== 권종별 판매 현황 ======================");
+		System.out.printf("주간권 총  %d 매\n", dayTicket[0]);
+		System.out.printf("유아 %d매, 소인 %d매, 청소년 %d매, 대인 %d매, 경로 %d매\n", 
+						dayAgeT[0], dayAgeT[1], dayAgeT[2], dayAgeT[3], dayAgeT[4]);
+		System.out.printf("주간권 총 매출 : %d원\n", dayTicket[1]);
+		
+		System.out.printf("\n야간권 총  %d 매\n", nightTicket[0]);
+		System.out.printf("유아 %d매, 소인 %d매, 청소년 %d매, 대인 %d매, 경로 %d매\n", 
+						nightAgeT[0], nightAgeT[1], nightAgeT[2], nightAgeT[3], nightAgeT[4]);
+		System.out.printf("주간권 총 매출 : %d원\n", nightTicket[1]);
+		System.out.println("============================================================");
+	}
 }

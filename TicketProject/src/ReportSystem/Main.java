@@ -5,6 +5,8 @@ import java.util.ArrayList;
 public class Main {
 
 	public static void main(String[] args) {
+		//권종별 판매현황, 일자별 매출현황, 우대권 판매형황
+		
 		FileRead file = new FileRead();
 		CalculateMethods cal = new CalculateMethods();
 		PrintResult print = new PrintResult();
@@ -12,8 +14,8 @@ public class Main {
 		ArrayList<String[]> raw;
 		String[] retDate;
 		int[] retDayNight, retAgeGroup, retTicket, retPrice, retPref; //read and return values
-		int[] dayAgeT, nightAgeT;
-		int dayTicket, nightTicket, totalTicket;
+		int[] dayAgeT, nightAgeT,dayTicket, nightTicket;
+		int totalTicket;
 		
 		ArrayList<Integer> calPerDay;
 		
@@ -27,15 +29,16 @@ public class Main {
 		retPref = file.readPreference(raw);
 		
 		
-		calPerDay = cal.CalPerDay(retDate, retPrice);
+		calPerDay = cal.CalPerDay(retDate, retPrice);//calculate daily sales status
 		
-		cal.CalTotalTicket(retTicket);
-		dayTicket = cal.countTicket(retDayNight,retTicket,true);
-		nightTicket = cal.countTicket(retDayNight,retTicket,false);
+		totalTicket = cal.CalTotalTicket(retTicket);//calculate number of tickets
+		dayTicket = cal.countTicket(retDayNight,retTicket,retPrice,true);
+		nightTicket = cal.countTicket(retDayNight,retTicket,retPrice,false);
 		dayAgeT = cal.countAgeTDay(retDayNight, retTicket, retAgeGroup);
 		nightAgeT = cal.countAgeTNight(retDayNight, retTicket, retAgeGroup);
 		
 		print.printAll(retDate,retDayNight,retAgeGroup,retTicket,retPrice,retPref);
+		print.ticketSaleStatus(dayTicket, nightTicket, dayAgeT, nightAgeT);
 		
 
 	}
