@@ -8,6 +8,7 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 public class FileRead {
+	ArrayList<String[]> raw = fileReader();
 
 	public ArrayList<String[]> fileReader() {
 		ArrayList<String[]> raw = new ArrayList<String[]>();
@@ -31,7 +32,7 @@ public class FileRead {
 
 	}
 
-	public String[] readDate(ArrayList<String[]> raw) { //날짜
+	public String[] readDate() { //날짜
 		String[] date = new String[raw.size() - 1];
 
 		for (int index = 0; index < raw.size() - 1; index++) {
@@ -43,7 +44,7 @@ public class FileRead {
 		return date;
 	}
 
-	public int[] readDayNight(ArrayList<String[]> raw) { //주야권 넘버
+	public int[] readDayNight() { //주야권 넘버
 		int[] dayNight = new int[raw.size() - 1];
 
 		for (int index = 0; index < raw.size() - 1; index++) {
@@ -61,7 +62,7 @@ public class FileRead {
 
 	}
 
-	public int[] readAgeGroup(ArrayList<String[]> raw) { // 나이 그룹 넘버
+	public int[] readAgeGroup() { // 나이 그룹 넘버
 		int[] ageGroup = new int[raw.size() - 1];
 
 		for (int index = 0; index < raw.size() - 1; index++) {
@@ -88,7 +89,7 @@ public class FileRead {
 
 	}
 
-	public int[] readTicket(ArrayList<String[]> raw) { // 티켓 장 수
+	public int[] readTicket() { // 티켓 장 수
 		int[] ticket = new int[raw.size() - 1];
 
 		for (int index = 0; index < raw.size() - 1; index++) {
@@ -101,7 +102,7 @@ public class FileRead {
 
 	}
 
-	public int[] readPrice(ArrayList<String[]> raw) { //가격
+	public int[] readPrice() { //가격
 		int[] price = new int[raw.size() - 1];
 
 		for (int index = 0; index < raw.size() - 1; index++) {
@@ -114,7 +115,7 @@ public class FileRead {
 
 	}
 
-	public int[] readPreference(ArrayList<String[]> raw) { //우대
+	public int[] readPreference() { //우대
 		int[] preference = new int[raw.size() - 1];
 
 		for (int index = 0; index < raw.size() - 1; index++) {

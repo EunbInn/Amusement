@@ -5,41 +5,52 @@ import java.util.ArrayList;
 public class Main {
 
 	public static void main(String[] args) {
-		//권종별 판매현황, 일자별 매출현황, 우대권 판매형황
-		
+		//권종별 판매현황, 일자별 매출현황, 우대권 판매형황	
 		FileRead file = new FileRead();
-		CalculateMethods cal = new CalculateMethods();
-		PrintResult print = new PrintResult();
 		
-		ArrayList<String[]> raw;
 		String[] retDate;
-		int[] retDayNight, retAgeGroup, retTicket, retPrice, retPref; //read and return values
+		int[] retDayNight, retAgeGroup, retTicket, retPrice, retPref, calPrePrefT; //read and return values
 		int[] dayAgeT, nightAgeT,dayTicket, nightTicket;
 		int totalTicket;
 		
 		ArrayList<Integer> calPerDay;
+		ArrayList<String> sortedDate;
 		
-		raw = file.fileReader(); // read file raw
+		file.fileReader(); // read file raw
 		
-		retDate = file.readDate(raw);
-		retDayNight = file.readDayNight(raw);
-		retAgeGroup = file.readAgeGroup(raw);
-		retTicket = file.readTicket(raw);
-		retPrice = file.readPrice(raw);
-		retPref = file.readPreference(raw);
+		retDate = file.readDate();
+		retDayNight = file.readDayNight();
+		retAgeGroup = file.readAgeGroup();
+		retTicket = file.readTicket();
+		retPrice = file.readPrice();
+		retPref = file.readPreference();
+			CalculateMethods cal = new CalculateMethods(				retDate, retDayNight, retAgeGroup, retTicket, retPrice, retPref);;
 		
+		calPerDay = cal.CalPerDay();//calculate daily sales status
+		sortedDate = cal.getSortedDate();
 		
-		calPerDay = cal.CalPerDay(retDate, retPrice);//calculate daily sales status
+		dayTicket = cal.countTicket(true);
+		nightTicket = cal.countTicket(false);
+		dayAgeT = cal.countAgeTDay();
+		nightAgeT = cal.countAgeTNight();
 		
-		totalTicket = cal.CalTotalTicket(retTicket);//calculate number of tickets
-		dayTicket = cal.countTicket(retDayNight,retTicket,retPrice,true);
-		nightTicket = cal.countTicket(retDayNight,retTicket,retPrice,false);
-		dayAgeT = cal.countAgeTDay(retDayNight, retTicket, retAgeGroup);
-		nightAgeT = cal.countAgeTNight(retDayNight, retTicket, retAgeGroup);
+		totalTicket = cal.CalTotalTicket();//calculate number of tickets
+		calPrePrefT = cal.calPreferenceTicket();
 		
-		print.printAll(retDate,retDayNight,retAgeGroup,retTicket,retPrice,retPref);
-		print.ticketSaleStatus(dayTicket, nightTicket, dayAgeT, nightAgeT);
+		PrintResult print = new PrintResult(retDate, retDayNight, retAgeGroup, retTicket, retPrice, retPref,
+					dayTicket, nightTicket, dayAgeT, nightAgeT, sortedDate, calPerDay, 
+				calPrePrefT, totalTicket);
 		
+		print.printAll();
+		print.ticketSaleStatus();
+		print.SalesSatatusPerDay();
+		print.PreferenceStatus();
+		
+		FileWriteStatistics fw = new FileWriteStatistics();
+		
+		fw.writeKind(dayTicket, nightTicket, dayAgeT, nightAgeT);
+		fw.writeDaily(sortedDate, calPerDay);
+		fw.writePref(totalTicket, calPrePrefT);
 
 	}
 

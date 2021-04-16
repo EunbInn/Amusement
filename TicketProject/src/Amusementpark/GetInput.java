@@ -8,6 +8,7 @@ public class GetInput {
 	
 	public GetInput() {
 		sc = new Scanner(System.in);
+		
 	}
 	
 	public int inputDayNight() {//주야권

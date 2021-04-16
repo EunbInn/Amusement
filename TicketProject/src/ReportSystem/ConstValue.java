@@ -1,6 +1,7 @@
 package ReportSystem;
 
 public class ConstValue {
+
 	final static String[] ageName = {"유아","소인","청소년","대인","경로"};
 	final static String[] preName = {"없음","장애인","국가유공자","다자녀","임산부"};
 	final static String[] dayNight = {"주간권","야간권"};
@@ -21,5 +22,9 @@ public class ConstValue {
 	final static int pregnant = 5;
 	
 	final static String filePath = "C:\\project\\amuse.csv";
+	final static String fileWritePath_1 = "C:\\project\\kindReport.csv";
+	final static String fileWritePath_2 = "C:\\project\\DailyReport.csv";
+	final static String fileWritePath_3 = "C:\\project\\prefReport.csv";
+	
 
 }
