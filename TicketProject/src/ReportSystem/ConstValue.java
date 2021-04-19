@@ -21,10 +21,10 @@ public class ConstValue {
 	public final static int multiChild = 4;
 	public final static int pregnant = 5;
 	
-	public final static String filePath = ".\\amuse.csv";
-	public final static String fileWritePath_1 = ".\\kindReport.csv";
-	public final static String fileWritePath_2 = ".\\DailyReport.csv";
-	public final static String fileWritePath_3 = ".\\prefReport.csv";
+	public final static String filePath = "amuse.csv";
+	public final static String fileWritePath_1 = "kindReport.csv";
+	public final static String fileWritePath_2 = "DailyReport.csv";
+	public final static String fileWritePath_3 = "prefReport.csv";
 	
 	
 

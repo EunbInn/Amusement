@@ -31,5 +31,5 @@ public class SetData {
 
 	final static int ticketMax = 10; // 티켓 맥스
 
-	final static String filePath = ".\\amuse.csv"; // 파일경로
+	final static String filePath = "amuse.csv"; // 파일경로
 }
