@@ -4,7 +4,7 @@ public class SetData {
 
 	final static int[] dayPrice = { 0, 44000, 47000, 56000, 44000 };// 유아 소인 청소년 대인 경로
 	final static int[] nightPrice = { 0, 37000, 40000, 46000, 37000 };// 유아 소인 청소년 대인 경로
-	final static double[] discount = { 1, 0.6, 0.5, 0.2, 0.15 };// 장애인, 국가유공자, 다자녀, 임산부
+	final static double[] discount = { 1, 0.6, 0.5, 0.8, 0.85 };// 장애인, 국가유공자, 다자녀, 임산부
 	final static String[] ageName = { "유아", "소인", "청소년", "대인", "경로" };
 	final static String[] preName = { "없음", "장애인", "국가유공자", "다자녀", "임산부" };
 	
