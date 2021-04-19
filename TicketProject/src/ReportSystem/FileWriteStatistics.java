@@ -11,7 +11,7 @@ import java.util.ArrayList;
 public class FileWriteStatistics {
 
 	public void writeKind(int[] sumDay, int[] sumNight, int[] dayAge, int[] nightAge) {
-		String firstLine = "±∏∫–,¡÷∞£±«,æﬂ∞£±«\n";
+		String firstLine = "Íµ¨Î∂Ñ,Ï£ºÍ∞ÑÍ∂å,ÏïºÍ∞ÑÍ∂å\n";
 		try {
 			BufferedWriter bw = new BufferedWriter(
 					new OutputStreamWriter(new FileOutputStream(ConstValue.fileWritePath_1), "MS949"));
@@ -20,8 +20,8 @@ public class FileWriteStatistics {
 				String kindWrite = ConstValue.ageName[i] + "," + dayAge[i] + "," + nightAge[i] + "\n";
 				bw.write(kindWrite);
 			}
-			bw.write("«’∞Ë," + sumDay[0] + "," + sumNight[0] + "\n");
-			bw.write("∏≈√‚," + sumDay[1] + "," + sumNight[1] + "\n");
+			bw.write("Ìï©Í≥Ñ," + sumDay[0] + "," + sumNight[0] + "\n");
+			bw.write("Îß§Ï∂ú," + sumDay[1] + "," + sumNight[1] + "\n");
 
 			bw.close();
 		} catch (UnsupportedEncodingException e) {
@@ -34,7 +34,7 @@ public class FileWriteStatistics {
 	}
 
 	public void writeDaily(ArrayList<String> date, ArrayList<Integer> sumPerDay) {
-		String firstLine = "¿œ¿⁄, √— ∏≈√‚\n";
+		String firstLine = "ÏùºÏûê, Ï¥ù Îß§Ï∂ú\n";
 
 		try {
 			BufferedWriter bw = new BufferedWriter(
@@ -67,7 +67,7 @@ public class FileWriteStatistics {
 	}
 
 	public void writePref(int totalTicket, int[] prefT) {
-		String firstLine = "øÏ¥Î ±∏∫–, ∞≥ºˆ\n";
+		String firstLine = "Ïö∞ÎåÄ Íµ¨Î∂Ñ, Í∞úÏàò\n";
 
 		try {
 			BufferedWriter bw = new BufferedWriter(
@@ -78,7 +78,7 @@ public class FileWriteStatistics {
 				String dailyWrite = ConstValue.preName[i] + "," + prefT[i] + "\n";
 				bw.write(dailyWrite);
 			}
-			bw.write("«’∞Ë," + totalTicket + "\n");
+			bw.write("Ìï©Í≥Ñ," + totalTicket + "\n");
 			bw.close();
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();

@@ -40,14 +40,14 @@ public class FileWrite {
 		}
 	}
 
-	public String dateReturn() { // ÆÄÀÏ ÀÔ·ÂÇÒ ³¯Â¥ ¸®ÅÏ
+	public String dateReturn() { // íŒŒì¼ ì…ë ¥í•  ë‚ ì§œ ë¦¬í„´
 		Calendar cal = Calendar.getInstance();
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
 
 		return sdf.format(cal.getTime());
 	}
 
-	// ÆÄÀÏ ÀÔ·ÂÇÒ ³»¿ë ¸®ÅÏ
+	// íŒŒì¼ ì…ë ¥í•  ë‚´ìš© ë¦¬í„´
 	public void resultCombine(ArrayList<SaveData> sd) {
 
 		for (int index = 0; index < sd.size(); index++) {
@@ -61,7 +61,7 @@ public class FileWrite {
 	}
 
 	public String firstLine() {
-		String first = "³¯Â¥,±ÇÁ¾,¿¬·É±¸ºĞ,¼ö·®,°¡°İ,¿ì´ë»çÇ×\n";
+		String first = "ë‚ ì§œ,ê¶Œì¢…,ì—°ë ¹êµ¬ë¶„,ìˆ˜ëŸ‰,ê°€ê²©,ìš°ëŒ€ì‚¬í•­\n";
 
 		return first;
 	}

@@ -2,20 +2,20 @@ package ReportSystem;
 
 public class ConstValue {
 
-	public final static String[] ageName = {"À¯¾Æ","¼ÒÀÎ","Ã»¼Ò³â","´ëÀÎ","°æ·Î"};
-	public final static String[] preName = {"¾øÀ½","Àå¾ÖÀÎ","±¹°¡À¯°øÀÚ","´ÙÀÚ³à","ÀÓ»êºÎ"};
-	public final static String[] dayNight = {"ÁÖ°£±Ç","¾ß°£±Ç"};
+	public final static String[] ageName = {"ìœ ì•„","ì†Œì¸","ì²­ì†Œë…„","ëŒ€ì¸","ê²½ë¡œ"};
+	public final static String[] preName = {"ì—†ìŒ","ì¥ì• ì¸","êµ­ê°€ìœ ê³µì","ë‹¤ìë…€","ì„ì‚°ë¶€"};
+	public final static String[] dayNight = {"ì£¼ê°„ê¶Œ","ì•¼ê°„ê¶Œ"};
 	
 	public final static int day = 1;
 	public final static int night = 2;
 	
-	public final static int baby = 1;//³ªÀÌ´ëº° ±×·ì ³Ñ¹ö »ó¼öÈ­
+	public final static int baby = 1;//ë‚˜ì´ëŒ€ë³„ ê·¸ë£¹ ë„˜ë²„ ìƒìˆ˜í™”
 	public final static int child = 2;
 	public final static int teen = 3;
 	public final static int adult = 4;
 	public final static int old = 5;
 	
-	public final static int none = 1; //¿ì´ë Á¾·ù »ó¼öÈ­
+	public final static int none = 1; //ìš°ëŒ€ ì¢…ë¥˜ ìƒìˆ˜í™”
 	public final static int disabled = 2;
 	public final static int national = 3;
 	public final static int multiChild = 4;

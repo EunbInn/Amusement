@@ -25,14 +25,14 @@ public class Main {
 			sd.setPrefInt(input.inputPreference());
 			
 			//calculate age, price
-			sd.setAgeInt(calP.calculateAge(inputId)); // ³ªÀÌ´ë ±×·ì ³Ñ¹ö ¸®ÅÏ
-			sd.setAgeGroup(SetData.ageName[sd.getAgeInt() - 1]); //±×·ìÀÌ¸§ ¼Â
+			sd.setAgeInt(calP.calculateAge(inputId)); // ë‚˜ì´ëŒ€ ê·¸ë£¹ ë„˜ë²„ ë¦¬í„´
+			sd.setAgeGroup(SetData.ageName[sd.getAgeInt() - 1]); //ê·¸ë£¹ì´ë¦„ ì…‹
 			sd.setDayNight(sd.getDayNightInt());
-			sd.setPreference(SetData.preName[sd.getPrefInt() - 1]); //¿ì´ë¿©ºÎ ÀÌ¸§ ¼Â
+			sd.setPreference(SetData.preName[sd.getPrefInt() - 1]); //ìš°ëŒ€ì—¬ë¶€ ì´ë¦„ ì…‹
 			price = calP.calPrice(
 					sd.getDayNightInt(), sd.getAgeInt(), sd.getTicket(), sd.getPrefInt());
 			sd.setPrice(price);
-			sumPrice = calP.sumPrice(sd.getPrice()); // °¡°İ ÃÑÇÕ ¿¬»ê
+			sumPrice = calP.sumPrice(sd.getPrice()); // ê°€ê²© ì´í•© ì—°ì‚°
 			
 			//save result
 			saveArr.add(sd); 
@@ -40,15 +40,15 @@ public class Main {
 			//input continue or not
 			inputMore = input.inputMore(sd.getPrice()); 
 
-			fw.resultCombine(saveArr); // °á°ú°ª ÇÕÃÄ¼­ file write ÇÏ±â
+			fw.resultCombine(saveArr); // ê²°ê³¼ê°’ í•©ì³ì„œ file write í•˜ê¸°
 
 			if (inputMore == 2) {
 				pm.printResult(saveArr, sumPrice);
-				saveArr = new ArrayList<SaveData>(); // array ÃÊ±âÈ­
-				calP = new CalculatePrice(); // °è»ê°ª ÃÊ±âÈ­
+				saveArr = new ArrayList<SaveData>(); // array ì´ˆê¸°í™”
+				calP = new CalculatePrice(); // ê³„ì‚°ê°’ ì´ˆê¸°í™”
 				inputContinue = input.ContinueOffProgram();
 				
-				if (inputContinue == 2) // ÇÁ·Î±×·¥ Á¾·á
+				if (inputContinue == 2) // í”„ë¡œê·¸ë¨ ì¢…ë£Œ
 					break; 
 			}
 		}

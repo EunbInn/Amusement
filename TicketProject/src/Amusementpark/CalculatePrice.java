@@ -8,18 +8,18 @@ public class CalculatePrice {
 	public int calculateAge(String inputYear) {
 
 		Calendar cal = Calendar.getInstance();
-		SimpleDateFormat year = new SimpleDateFormat("yyyy");// ³âµµ Æ÷¸Ë
-		SimpleDateFormat date = new SimpleDateFormat("MMdd");// ³¯Â¥ Æ÷¸Ë
+		SimpleDateFormat year = new SimpleDateFormat("yyyy");// ë…„ë„ í¬ë§·
+		SimpleDateFormat date = new SimpleDateFormat("MMdd");// ë‚ ì§œ í¬ë§·
 
-		int thisYear = Integer.parseInt(year.format(cal.getTime()));// ¿ÃÇØ ¿¬µµ
-		int today = Integer.parseInt(date.format(cal.getTime()));// ¿À´Ã ³¯Â¥
-		String bYear = inputYear.substring(0, 2); // ÅÂ¾î³­ ³âµµ
-		int bDay = Integer.parseInt(inputYear.substring(2, 6)); // ¸¸³ªÀÌ °è»ê¿ë ¹ÎÁõ ³¯Â¥
-		int sort00 = Integer.parseInt(inputYear.split("")[6]); // 1900, 2000³â´ë»ı ±¸ºĞÇÏ´Â ÀÚ¸®¼ö
+		int thisYear = Integer.parseInt(year.format(cal.getTime()));// ì˜¬í•´ ì—°ë„
+		int today = Integer.parseInt(date.format(cal.getTime()));// ì˜¤ëŠ˜ ë‚ ì§œ
+		String bYear = inputYear.substring(0, 2); // íƒœì–´ë‚œ ë…„ë„
+		int bDay = Integer.parseInt(inputYear.substring(2, 6)); // ë§Œë‚˜ì´ ê³„ì‚°ìš© ë¯¼ì¦ ë‚ ì§œ
+		int sort00 = Integer.parseInt(inputYear.split("")[6]); // 1900, 2000ë…„ëŒ€ìƒ êµ¬ë¶„í•˜ëŠ” ìë¦¬ìˆ˜
 
 		int age = 0;
 
-		// ¸¸³ªÀÌ °è»ê : ¿À´Ã ³¯Â¥ >= »ıÀÏ (==ÀÌ¹Ì Áö³µÀ¸¸é) ¿ÃÇØ - »ı³â »« °ª + 1
+		// ë§Œë‚˜ì´ ê³„ì‚° : ì˜¤ëŠ˜ ë‚ ì§œ >= ìƒì¼ (==ì´ë¯¸ ì§€ë‚¬ìœ¼ë©´) ì˜¬í•´ - ìƒë…„ ëº€ ê°’ + 1
 		if ((sort00 == SetData.less00male || sort00 == SetData.less00female) && today >= bDay) {
 			bYear = 19 + bYear;
 			age = thisYear - Integer.parseInt(bYear) + 1;
@@ -43,7 +43,7 @@ public class CalculatePrice {
 
 	private int getAgeGroup(int age) {
 		int ageGroup = 0;
-		// ³ªÀÌº° ±×·ì ¹øÈ£ ±¸ºĞ
+		// ë‚˜ì´ë³„ ê·¸ë£¹ ë²ˆí˜¸ êµ¬ë¶„
 		if (age < SetData.childMin) {
 			ageGroup = SetData.baby;
 
@@ -61,7 +61,7 @@ public class CalculatePrice {
 
 		}
 
-		return ageGroup; // ±¸ºĞµÈ ±×·ì ¹øÈ£ ¸®ÅÏ
+		return ageGroup; // êµ¬ë¶„ëœ ê·¸ë£¹ ë²ˆí˜¸ ë¦¬í„´
 	}
 
 	public int calPrice(int dayNight, int ageGroup, int ticket, int pref) {

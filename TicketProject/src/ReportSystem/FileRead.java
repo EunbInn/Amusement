@@ -32,11 +32,11 @@ public class FileRead {
 
 	}
 
-	public String[] readDate() { // ³¯Â¥
+	public String[] readDate() { // ë‚ ì§œ
 		String[] date = new String[raw.size() - 1];
 
 		for (int index = 0; index < raw.size() - 1; index++) {
-			String[] raw_split = raw.get(index + 1);// Ã¹ÁÙ Á¦¿Ü ÀÐ±â
+			String[] raw_split = raw.get(index + 1);// ì²«ì¤„ ì œì™¸ ì½ê¸°
 			date[index] = raw_split[0];
 
 		}
@@ -44,11 +44,11 @@ public class FileRead {
 		return date;
 	}
 
-	public int[] readDayNight() { // ÁÖ¾ß±Ç ³Ñ¹ö
+	public int[] readDayNight() { // ì£¼ì•¼ê¶Œ ë„˜ë²„
 		int[] dayNight = new int[raw.size() - 1];
 
 		for (int index = 0; index < raw.size() - 1; index++) {
-			String raw_day = raw.get(index + 1)[1];// Ã¹ÁÙ Á¦¿Ü ÀÐ±â
+			String raw_day = raw.get(index + 1)[1];// ì²«ì¤„ ì œì™¸ ì½ê¸°
 
 			if (raw_day.equals(ConstValue.dayNight[0])) {
 				dayNight[index] = ConstValue.day;
@@ -62,11 +62,11 @@ public class FileRead {
 
 	}
 
-	public int[] readAgeGroup() { // ³ªÀÌ ±×·ì ³Ñ¹ö
+	public int[] readAgeGroup() { // ë‚˜ì´ ê·¸ë£¹ ë„˜ë²„
 		int[] ageGroup = new int[raw.size() - 1];
 
 		for (int index = 0; index < raw.size() - 1; index++) {
-			String raw_age = raw.get(index + 1)[2];// Ã¹ÁÙ Á¦¿Ü ÀÐ±â
+			String raw_age = raw.get(index + 1)[2];// ì²«ì¤„ ì œì™¸ ì½ê¸°
 
 			if (raw_age.equals(ConstValue.ageName[0])) {
 				ageGroup[index] = ConstValue.baby;
@@ -89,11 +89,11 @@ public class FileRead {
 
 	}
 
-	public int[] readTicket() { // Æ¼ÄÏ Àå ¼ö
+	public int[] readTicket() { // í‹°ì¼“ ìž¥ ìˆ˜
 		int[] ticket = new int[raw.size() - 1];
 
 		for (int index = 0; index < raw.size() - 1; index++) {
-			String raw_ticket = raw.get(index + 1)[3];// Ã¹ÁÙ Á¦¿Ü ÀÐ±â
+			String raw_ticket = raw.get(index + 1)[3];// ì²«ì¤„ ì œì™¸ ì½ê¸°
 			ticket[index] = Integer.parseInt(raw_ticket);
 
 		}
@@ -102,11 +102,11 @@ public class FileRead {
 
 	}
 
-	public int[] readPrice() { // °¡°Ý
+	public int[] readPrice() { // ê°€ê²©
 		int[] price = new int[raw.size() - 1];
 
 		for (int index = 0; index < raw.size() - 1; index++) {
-			String raw_price = raw.get(index + 1)[4];// Ã¹ÁÙ Á¦¿Ü ÀÐ±â
+			String raw_price = raw.get(index + 1)[4];// ì²«ì¤„ ì œì™¸ ì½ê¸°
 			price[index] = Integer.parseInt(raw_price);
 
 		}
@@ -115,11 +115,11 @@ public class FileRead {
 
 	}
 
-	public int[] readPreference() { // ¿ì´ë
+	public int[] readPreference() { // ìš°ëŒ€
 		int[] preference = new int[raw.size() - 1];
 
 		for (int index = 0; index < raw.size() - 1; index++) {
-			String raw_age = raw.get(index + 1)[5];// Ã¹ÁÙ Á¦¿Ü ÀÐ±â
+			String raw_age = raw.get(index + 1)[5];// ì²«ì¤„ ì œì™¸ ì½ê¸°
 
 			if (raw_age.equals(ConstValue.preName[0])) {
 				preference[index] = ConstValue.none;

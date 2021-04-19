@@ -11,52 +11,52 @@ public class GetInput {
 
 	}
 
-	public int inputDayNight() {// ÁÖ¾ß±Ç
+	public int inputDayNight() {// ì£¼ì•¼ê¶Œ
 		print.dayNightOption();
 		int choice = sc.nextInt();
 
 		return choice;
 	}
 
-	public int inputTicketNum() {// Æ¼ÄÏ °³¼ö ¹Ş±â
+	public int inputTicketNum() {// í‹°ì¼“ ê°œìˆ˜ ë°›ê¸°
 		print.ticketNumber();
 		int number = sc.nextInt();
 
-		while (number > SetData.ticketMax) { // ¹ß±Ç °¡´É ÃÖ´ë °ª ³ÑÀ¸¸é ´Ù½Ã ÀÔ·Â ¿äÃ»
-			System.out.println("´Ù½Ã ÀÔ·ÂÇØÁÖ¼¼¿ä");
+		while (number > SetData.ticketMax) { // ë°œê¶Œ ê°€ëŠ¥ ìµœëŒ€ ê°’ ë„˜ìœ¼ë©´ ë‹¤ì‹œ ì…ë ¥ ìš”ì²­
+			System.out.println("ë‹¤ì‹œ ì…ë ¥í•´ì£¼ì„¸ìš”");
 			number = sc.nextInt();
 		}
 
 		return number;
 	}
 
-	public int inputPreference() {// ¿ì´ë
+	public int inputPreference() {// ìš°ëŒ€
 		print.PreferenceOption();
 		int choice = sc.nextInt();
 
 		return choice;
 	}
 
-	public int inputMore(int price) {// ¹ß±Ç°è¼Ó¿©ºÎ
+	public int inputMore(int price) {// ë°œê¶Œê³„ì†ì—¬ë¶€
 		print.priceAndMore(price);
 		int choice = sc.nextInt();
 
 		return choice;
 	}
 
-	public int ContinueOffProgram() {// ÇÁ·Î±×·¥ °è¼Ó ¿©ºÎ
+	public int ContinueOffProgram() {// í”„ë¡œê·¸ë¨ ê³„ì† ì—¬ë¶€
 		print.printContinueOr();
 		int choice = sc.nextInt();
 		return choice;
 	}
 
-	public String inputID() { // ÁÖ¹Î¹øÈ£
+	public String inputID() { // ì£¼ë¯¼ë²ˆí˜¸
 		print.IDNumber();
 		sc = new Scanner(System.in);
 		String idNum = sc.nextLine();
 
-		while (idNum.length() < 8 || idNum.charAt(6) == '-') { // -°¡ µé¾î°¡°Å³ª 8ÀÚ¸® ¾Æ·¡·Î ÀÔ·ÂÇÏ¸é ÀçÀÔ·Â ¿ä±¸
-			System.out.println("´Ù½Ã ÀÔ·ÂÇØÁÖ¼¼¿ä");
+		while (idNum.length() < 8 || idNum.charAt(6) == '-') { // -ê°€ ë“¤ì–´ê°€ê±°ë‚˜ 8ìë¦¬ ì•„ë˜ë¡œ ì…ë ¥í•˜ë©´ ì¬ì…ë ¥ ìš”êµ¬
+			System.out.println("ë‹¤ì‹œ ì…ë ¥í•´ì£¼ì„¸ìš”");
 			idNum = sc.nextLine();
 		}
 

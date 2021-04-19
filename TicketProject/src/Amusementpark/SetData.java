@@ -2,34 +2,34 @@ package Amusementpark;
 
 public class SetData {
 
-	final static int[] dayPrice = { 0, 44000, 47000, 56000, 44000 };// À¯¾Æ ¼ÒÀÎ Ã»¼Ò³â ´ëÀÎ °æ·Î
-	final static int[] nightPrice = { 0, 37000, 40000, 46000, 37000 };// À¯¾Æ ¼ÒÀÎ Ã»¼Ò³â ´ëÀÎ °æ·Î
-	final static double[] discount = { 1, 0.6, 0.5, 0.2, 0.15 };// Àå¾ÖÀÎ, ±¹°¡À¯°øÀÚ, ´ÙÀÚ³à, ÀÓ»êºÎ
-	final static String[] ageName = { "À¯¾Æ", "¼ÒÀÎ", "Ã»¼Ò³â", "´ëÀÎ", "°æ·Î" };
-	final static String[] preName = { "¾øÀ½", "Àå¾ÖÀÎ", "±¹°¡À¯°øÀÚ", "´ÙÀÚ³à", "ÀÓ»êºÎ" };
+	final static int[] dayPrice = { 0, 44000, 47000, 56000, 44000 };// ìœ ì•„ ì†Œì¸ ì²­ì†Œë…„ ëŒ€ì¸ ê²½ë¡œ
+	final static int[] nightPrice = { 0, 37000, 40000, 46000, 37000 };// ìœ ì•„ ì†Œì¸ ì²­ì†Œë…„ ëŒ€ì¸ ê²½ë¡œ
+	final static double[] discount = { 1, 0.6, 0.5, 0.2, 0.15 };// ì¥ì• ì¸, êµ­ê°€ìœ ê³µì, ë‹¤ìë…€, ì„ì‚°ë¶€
+	final static String[] ageName = { "ìœ ì•„", "ì†Œì¸", "ì²­ì†Œë…„", "ëŒ€ì¸", "ê²½ë¡œ" };
+	final static String[] preName = { "ì—†ìŒ", "ì¥ì• ì¸", "êµ­ê°€ìœ ê³µì", "ë‹¤ìë…€", "ì„ì‚°ë¶€" };
 	
-	final static String day = "ÁÖ°£±Ç";
-	final static String night = "¾ß°£±Ç";
+	final static String day = "ì£¼ê°„ê¶Œ";
+	final static String night = "ì•¼ê°„ê¶Œ";
 
-	final static int childMin = 3;// ³ªÀÌ´ëº° ¹Î¸Æ½º »ó¼öÈ­
+	final static int childMin = 3;// ë‚˜ì´ëŒ€ë³„ ë¯¼ë§¥ìŠ¤ ìƒìˆ˜í™”
 	final static int childMax = 12;
 	final static int teenMin = 13;
 	final static int teenMax = 18;
 	final static int adultMin = 19;
 	final static int adultMax = 64;
 
-	final static int baby = 1;// ³ªÀÌ´ëº° ±×·ì ³Ñ¹ö »ó¼öÈ­
+	final static int baby = 1;// ë‚˜ì´ëŒ€ë³„ ê·¸ë£¹ ë„˜ë²„ ìƒìˆ˜í™”
 	final static int child = 2;
 	final static int teen = 3;
 	final static int adult = 4;
 	final static int old = 5;
 
-	final static int less00male = 1; // 2000³â´ë»ı ¾Æ·¡
+	final static int less00male = 1; // 2000ë…„ëŒ€ìƒ ì•„ë˜
 	final static int less00female = 2;
-	final static int over00male = 3; // 2000³â´ë»ı ÀÌ»ó
+	final static int over00male = 3; // 2000ë…„ëŒ€ìƒ ì´ìƒ
 	final static int over00female = 4;
 
-	final static int ticketMax = 10; // Æ¼ÄÏ ¸Æ½º
+	final static int ticketMax = 10; // í‹°ì¼“ ë§¥ìŠ¤
 
-	final static String filePath = "amuse.csv"; // ÆÄÀÏ°æ·Î
+	final static String filePath = "amuse.csv"; // íŒŒì¼ê²½ë¡œ
 }

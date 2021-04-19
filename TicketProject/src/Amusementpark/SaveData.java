@@ -16,9 +16,9 @@ public class SaveData {
 
 	public void setDayNight(int dayNight) {
 		if (dayNight == 1) {
-			this.dayNight = "аж╟ё╠г";
+			this.dayNight = "ц│ц√б╟бёб╠ц┤";
 		} else if (dayNight == 2) {
-			this.dayNight = "╬ъ╟ё╠г";
+			this.dayNight = "б╬ц÷б╟бёб╠ц┤";
 		}
 	}
 
