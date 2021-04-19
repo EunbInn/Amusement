@@ -87,9 +87,6 @@ public class CalculateMethods {
 	}
 	
 	//count day entry ticket per ageGroup
-	
-	
-	//count night entry ticket per ageGroup
 	public int[] countAgeTDay() {
 		int[] countTicket = new int[5];
 		
@@ -126,6 +123,8 @@ public class CalculateMethods {
 		return countTicket;
 	}
 	
+	
+	//count night entry ticket per ageGroup
 	public int[] countAgeTNight() {
 		int[] countTicket = new int[5];
 		

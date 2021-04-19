@@ -15,19 +15,19 @@ public class Main {
 		ArrayList<Integer> calPerDay;
 		ArrayList<String> sortedDate;
 		
-		file.fileReader(); // read file raw
-		
+		// read file raw
+		file.fileReader(); 
 		retDate = file.readDate();
 		retDayNight = file.readDayNight();
 		retAgeGroup = file.readAgeGroup();
 		retTicket = file.readTicket();
 		retPrice = file.readPrice();
 		retPref = file.readPreference();
-			CalculateMethods cal = new CalculateMethods(				retDate, retDayNight, retAgeGroup, retTicket, retPrice, retPref);;
 		
-		calPerDay = cal.CalPerDay();//calculate daily sales status
+		//calculate data to print and to write on file		CalculateMethods cal = new CalculateMethods(				retDate, retDayNight, retAgeGroup, retTicket, retPrice, retPref);
+		
+		calPerDay = cal.CalPerDay();
 		sortedDate = cal.getSortedDate();
-		
 		dayTicket = cal.countTicket(true);
 		nightTicket = cal.countTicket(false);
 		dayAgeT = cal.countAgeTDay();
@@ -36,6 +36,7 @@ public class Main {
 		totalTicket = cal.CalTotalTicket();//calculate number of tickets
 		calPrePrefT = cal.calPreferenceTicket();
 		
+		//print result
 		PrintResult print = new PrintResult(retDate, retDayNight, retAgeGroup, retTicket, retPrice, retPref,
 					dayTicket, nightTicket, dayAgeT, nightAgeT, sortedDate, calPerDay, 
 				calPrePrefT, totalTicket);
@@ -45,6 +46,7 @@ public class Main {
 		print.SalesSatatusPerDay();
 		print.PreferenceStatus();
 		
+		//file write
 		FileWriteStatistics fw = new FileWriteStatistics();
 		
 		fw.writeKind(dayTicket, nightTicket, dayAgeT, nightAgeT);
