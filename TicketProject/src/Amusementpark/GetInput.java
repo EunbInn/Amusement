@@ -5,63 +5,62 @@ import java.util.Scanner;
 public class GetInput {
 	PrintMenu print = new PrintMenu();
 	Scanner sc = null;
-	
+
 	public GetInput() {
 		sc = new Scanner(System.in);
-		
+
 	}
-	
-	public int inputDayNight() {//ì£¼ì•¼ê¶Œ
+
+	public int inputDayNight() {// ÁÖ¾ß±Ç
 		print.dayNightOption();
 		int choice = sc.nextInt();
-		
+
 		return choice;
 	}
-	
-	public int inputTicketNum() {//í‹°ì¼“ ê°œìˆ˜ ë°›ê¸°
+
+	public int inputTicketNum() {// Æ¼ÄÏ °³¼ö ¹Ş±â
 		print.ticketNumber();
 		int number = sc.nextInt();
-		
-		while (number > SetData.ticketMax) { //ë°œê¶Œ ê°€ëŠ¥ ìµœëŒ€ ê°’ ë„˜ìœ¼ë©´ ë‹¤ì‹œ ì…ë ¥ ìš”ì²­
-			System.out.println("ë‹¤ì‹œ ì…ë ¥í•´ì£¼ì„¸ìš”");
+
+		while (number > SetData.ticketMax) { // ¹ß±Ç °¡´É ÃÖ´ë °ª ³ÑÀ¸¸é ´Ù½Ã ÀÔ·Â ¿äÃ»
+			System.out.println("´Ù½Ã ÀÔ·ÂÇØÁÖ¼¼¿ä");
 			number = sc.nextInt();
 		}
-		
+
 		return number;
 	}
-	
-	public int inputPreference() {//ìš°ëŒ€
+
+	public int inputPreference() {// ¿ì´ë
 		print.PreferenceOption();
 		int choice = sc.nextInt();
-		
+
 		return choice;
 	}
-	
-	public int inputMore(int price) {//ë°œê¶Œê³„ì†ì—¬ë¶€
+
+	public int inputMore(int price) {// ¹ß±Ç°è¼Ó¿©ºÎ
 		print.priceAndMore(price);
 		int choice = sc.nextInt();
-		
+
 		return choice;
 	}
-	
-	public int ContinueOffProgram() {//í”„ë¡œê·¸ë¨ ê³„ì† ì—¬ë¶€
+
+	public int ContinueOffProgram() {// ÇÁ·Î±×·¥ °è¼Ó ¿©ºÎ
 		print.printContinueOr();
 		int choice = sc.nextInt();
 		return choice;
 	}
-	
-	public String inputID() { //ì£¼ë¯¼ë²ˆí˜¸
+
+	public String inputID() { // ÁÖ¹Î¹øÈ£
 		print.IDNumber();
 		sc = new Scanner(System.in);
 		String idNum = sc.nextLine();
-		
-		while (idNum.length() < 8 || idNum.charAt(6) == '-') { // -ê°€ ë“¤ì–´ê°€ê±°ë‚˜ 8ìë¦¬ ì•„ë˜ë¡œ ì…ë ¥í•˜ë©´ ì¬ì…ë ¥ ìš”êµ¬
-			System.out.println("ë‹¤ì‹œ ì…ë ¥í•´ì£¼ì„¸ìš”");
+
+		while (idNum.length() < 8 || idNum.charAt(6) == '-') { // -°¡ µé¾î°¡°Å³ª 8ÀÚ¸® ¾Æ·¡·Î ÀÔ·ÂÇÏ¸é ÀçÀÔ·Â ¿ä±¸
+			System.out.println("´Ù½Ã ÀÔ·ÂÇØÁÖ¼¼¿ä");
 			idNum = sc.nextLine();
 		}
-		
+
 		return idNum;
 	}
-	
-	
+
 }

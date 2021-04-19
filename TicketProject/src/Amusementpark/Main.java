@@ -8,7 +8,7 @@ public class Main {
 
 		int inputContinue, inputMore, sumPrice, price;
 		String inputId;
-		
+
 		ArrayList<SaveData> saveArr = new ArrayList<SaveData>();
 		PrintMenu pm = new PrintMenu();
 		GetInput input = new GetInput();
@@ -18,38 +18,37 @@ public class Main {
 
 		while (true) {
 			sd = new SaveData();
-			sd.setDayNightInt(input.inputDayNight()); // ì£¼ì•¼ê¶Œì—¬ë¶€ ë¦¬í„´
+			sd.setDayNightInt(input.inputDayNight()); // ÁÖ¾ß±Ç¿©ºÎ ¸®ÅÏ
 			sd.setDayNight(sd.getDayNightInt());
-			
-			inputId = input.inputID(); // ì£¼ë¯¼ë²ˆí˜¸ 
-			
-			sd.setAgeInt(calP.calculateAge(inputId)); // ë‚˜ì´ëŒ€ ê·¸ë£¹ ë„˜ë²„ ë¦¬í„´
-			sd.setAgeGroup(SetData.ageName[sd.getAgeInt() - 1]); //ê·¸ë£¹ì´ë¦„ ì…‹
-			
-			sd.setTicket(input.inputTicketNum()); // í‹°ì¼“ ì¥ ìˆ˜ ë¦¬í„´
-			
-			sd.setPrefInt(input.inputPreference()); // ìš°ëŒ€ì—¬ë¶€ ë¦¬í„´
-			sd.setPreference(SetData.preName[sd.getPrefInt() - 1]); //ìš°ëŒ€ì—¬ë¶€ ì´ë¦„ ì…‹
-			
-			price = calP.calPrice(
-					sd.getDayNightInt(), sd.getAgeInt(), sd.getTicket(), sd.getPrefInt());
-			sd.setPrice(price); // êµ¬ë§¤ê°€ê²© ì…‹
-			sumPrice = calP.sumPrice(sd.getPrice()); // ê°€ê²© ì´í•© ì—°ì‚°
 
-			saveArr.add(sd); // ê²°ê³¼ ì„¸ì´ë¸Œ
+			inputId = input.inputID(); // ÁÖ¹Î¹øÈ£
 
-			inputMore = input.inputMore(sd.getPrice()); // íšŒë‹¹ êµ¬ë§¤ ê²°ê³¼ ì¶œë ¥ ë° êµ¬ë§¤ ê³„ì† ì—¬ë¶€ ë¦¬í„´
+			sd.setAgeInt(calP.calculateAge(inputId)); // ³ªÀÌ´ë ±×·ì ³Ñ¹ö ¸®ÅÏ
+			sd.setAgeGroup(SetData.ageName[sd.getAgeInt() - 1]); // ±×·ìÀÌ¸§ ¼Â
 
-			fw.resultCombine(saveArr); // ê²°ê³¼ê°’ í•©ì³ì„œ file write í•˜ê¸°
+			sd.setTicket(input.inputTicketNum()); // Æ¼ÄÏ Àå ¼ö ¸®ÅÏ
+
+			sd.setPrefInt(input.inputPreference()); // ¿ì´ë¿©ºÎ ¸®ÅÏ
+			sd.setPreference(SetData.preName[sd.getPrefInt() - 1]); // ¿ì´ë¿©ºÎ ÀÌ¸§ ¼Â
+
+			price = calP.calPrice(sd.getDayNightInt(), sd.getAgeInt(), sd.getTicket(), sd.getPrefInt());
+			sd.setPrice(price); // ±¸¸Å°¡°İ ¼Â
+			sumPrice = calP.sumPrice(sd.getPrice()); // °¡°İ ÃÑÇÕ ¿¬»ê
+
+			saveArr.add(sd); // °á°ú ¼¼ÀÌºê
+
+			inputMore = input.inputMore(sd.getPrice()); // È¸´ç ±¸¸Å °á°ú Ãâ·Â ¹× ±¸¸Å °è¼Ó ¿©ºÎ ¸®ÅÏ
+
+			fw.resultCombine(saveArr); // °á°ú°ª ÇÕÃÄ¼­ file write ÇÏ±â
 
 			if (inputMore == 2) {
 				pm.printResult(saveArr, sumPrice);
-				saveArr = new ArrayList<SaveData>(); // array ì´ˆê¸°í™”
-				calP = new CalculatePrice(); // ê³„ì‚°ê°’ ì´ˆê¸°í™”
+				saveArr = new ArrayList<SaveData>(); // array ÃÊ±âÈ­
+				calP = new CalculatePrice(); // °è»ê°ª ÃÊ±âÈ­
 				inputContinue = input.ContinueOffProgram();
-				
-				if (inputContinue == 2) // í”„ë¡œê·¸ë¨ ì¢…ë£Œ
-					break; 
+
+				if (inputContinue == 2) // ÇÁ·Î±×·¥ Á¾·á
+					break;
 			}
 		}
 	}

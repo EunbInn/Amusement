@@ -9,18 +9,16 @@ public class PrintResult {
 	int totalTicket;
 	ArrayList<Integer> price_arr;
 	ArrayList<String> date_arr;
-	
-	public PrintResult(String[] retDate, int[]retDayNight, int[]retAgeGroup,
-			int[]retTicket, int[]retPrice, int[]retPref, int[] dayTicket,
-			int[] nightTicket,int[] dayAgeT,int[] nightAgeT, 
-			ArrayList<String> date_arr, ArrayList<Integer> price_arr, 
-			int[] prefT, int totalTicket) {
+
+	public PrintResult(String[] retDate, int[] retDayNight, int[] retAgeGroup, int[] retTicket, int[] retPrice,
+			int[] retPref, int[] dayTicket, int[] nightTicket, int[] dayAgeT, int[] nightAgeT,
+			ArrayList<String> date_arr, ArrayList<Integer> price_arr, int[] prefT, int totalTicket) {
 		this.date = retDate;
 		this.dayNight = retDayNight;
 		this.ageGroup = retAgeGroup;
 		this.ticket = retTicket;
 		this.price = retPrice;
-		this.pref = retPref;		
+		this.pref = retPref;
 		this.dayTicket = dayTicket;
 		this.nightTicket = nightTicket;
 		this.dayAgeT = dayAgeT;
@@ -30,77 +28,76 @@ public class PrintResult {
 		this.prefT = prefT;
 		this.totalTicket = totalTicket;
 	}
-	
+
 	public void printAll() {
 		System.out.println("======================== report.csv =========================");
-		System.out.printf("%6s%7s%5s%5s%10s%11s\n","ë‚ ì§œ","ê¶Œì¢…","ì—°ë ¹ëŒ€","ìˆ˜ëŸ‰","ê°€ê²©","ìš°ëŒ€ì‚¬í•­");
-		
+		System.out.printf("%6s%7s%5s%5s%10s%11s\n", "³¯Â¥", "±ÇÁ¾", "¿¬·É´ë", "¼ö·®", "°¡°Ý", "¿ì´ë»çÇ×");
+
 		for (int i = 0; i < date.length; i++) {
-			System.out.printf("  %8.12s%4.5s%8.8s%8.6s%15.10s%10s\n",
-					date[i], (dayNight[i] + ""), (ageGroup[i] + ""), 
+			System.out.printf("  %8.12s%4.5s%8.8s%8.6s%15.10s%10s\n", date[i], (dayNight[i] + ""), (ageGroup[i] + ""),
 					(ticket[i] + ""), (price[i] + ""), (pref[i] + ""));
 		}
 		System.out.println("------------------------------------------------------------");
 	}
-	
+
 	public void ticketSaleStatus() {
-		System.out.println("\n\n================== ê¶Œì¢…ë³„ íŒë§¤ í˜„í™© ====================");
-		System.out.printf("ì£¼ê°„ê¶Œ ì´  %d ë§¤\n", dayTicket[0]);
-		System.out.printf("ìœ ì•„ %dë§¤, ì†Œì¸ %dë§¤, ì²­ì†Œë…„ %dë§¤, ëŒ€ì¸ %dë§¤, ê²½ë¡œ %dë§¤\n", 
-						dayAgeT[0], dayAgeT[1], dayAgeT[2], dayAgeT[3], dayAgeT[4]);
-		System.out.printf("ì£¼ê°„ê¶Œ ì´ ë§¤ì¶œ : %dì›\n", dayTicket[1]);
-		
-		System.out.printf("\nì•¼ê°„ê¶Œ ì´  %d ë§¤\n", nightTicket[0]);
-		System.out.printf("ìœ ì•„ %dë§¤, ì†Œì¸ %dë§¤, ì²­ì†Œë…„ %dë§¤, ëŒ€ì¸ %dë§¤, ê²½ë¡œ %dë§¤\n", 
-						nightAgeT[0], nightAgeT[1], nightAgeT[2], nightAgeT[3], nightAgeT[4]);
-		System.out.printf("ì•¼ê°„ê¶Œ ì´ ë§¤ì¶œ : %dì›\n", nightTicket[1]);
+		System.out.println("\n\n================== ±ÇÁ¾º° ÆÇ¸Å ÇöÈ² ====================");
+		System.out.printf("ÁÖ°£±Ç ÃÑ  %d ¸Å\n", dayTicket[0]);
+		System.out.printf("À¯¾Æ %d¸Å, ¼ÒÀÎ %d¸Å, Ã»¼Ò³â %d¸Å, ´ëÀÎ %d¸Å, °æ·Î %d¸Å\n", dayAgeT[0], dayAgeT[1], dayAgeT[2], dayAgeT[3],
+				dayAgeT[4]);
+		System.out.printf("ÁÖ°£±Ç ÃÑ ¸ÅÃâ : %d¿ø\n", dayTicket[1]);
+
+		System.out.printf("\n¾ß°£±Ç ÃÑ  %d ¸Å\n", nightTicket[0]);
+		System.out.printf("À¯¾Æ %d¸Å, ¼ÒÀÎ %d¸Å, Ã»¼Ò³â %d¸Å, ´ëÀÎ %d¸Å, °æ·Î %d¸Å\n", nightAgeT[0], nightAgeT[1], nightAgeT[2],
+				nightAgeT[3], nightAgeT[4]);
+		System.out.printf("¾ß°£±Ç ÃÑ ¸ÅÃâ : %d¿ø\n", nightTicket[1]);
 		System.out.println("--------------------------------------------------------");
 
 	}
-	
+
 	public void SalesSatatusPerDay() {
-		System.out.println("\n\n============ ì¼ìžë³„ íŒë§¤ í˜„í™© ==============");
+		System.out.println("\n\n============ ÀÏÀÚº° ÆÇ¸Å ÇöÈ² ==============");
 		for (int i = 0; i < date_arr.size(); i++) {
 			String newDate = DateFormat(date_arr.get(i));
-			System.out.printf("%s : ì´ ë§¤ì¶œ %13.12s ì›\n", newDate, (price_arr.get(i) + ""));
+			System.out.printf("%s : ÃÑ ¸ÅÃâ %13.12s ¿ø\n", newDate, (price_arr.get(i) + ""));
 		}
 		System.out.println("--------------------------------------------");
-			
+
 	}
-	
+
 	private String DateFormat(String date) {
 		String year = date.substring(0, 4);
 		String month = date.substring(4, 6);
 		String day = date.substring(6);
-		
-		String returnValue = year + "ë…„ " + month + "ì›” " + day + "ì¼";
-		
+
+		String returnValue = year + "³â " + month + "¿ù " + day + "ÀÏ";
+
 		return returnValue;
 	}
-	
+
 	public void PreferenceStatus() {
-		System.out.println("\n\n========== ìš°ëŒ€ê¶Œ íŒë§¤ í˜„í™© ============");
-		System.out.printf("ì´ íŒë§¤ í‹°ì¼“ ìˆ˜     : %15.10së§¤\n", (totalTicket + ""));
-		
+		System.out.println("\n\n========== ¿ì´ë±Ç ÆÇ¸Å ÇöÈ² ============");
+		System.out.printf("ÃÑ ÆÇ¸Å Æ¼ÄÏ ¼ö     : %15.10s¸Å\n", (totalTicket + ""));
+
 		for (int i = 0; i < prefT.length; i++) {
-			System.out.printf("%s: %15.10së§¤\n", strForm(ConstValue.preName[i], 10), (prefT[i] + ""));
+			System.out.printf("%s: %15.10s¸Å\n", strForm(ConstValue.preName[i], 10), (prefT[i] + ""));
 		}
-		
+
 		System.out.println("----------------------------------------");
 	}
-	
+
 	public String strForm(String str, int leng) {
 		String temp = str + "                ";
-		
-		temp = temp.substring(0,leng);
-		
+
+		temp = temp.substring(0, leng);
+
 		int blank = leng - str.length();
-		
+
 		for (int i = 0; i < blank; i++) {
 			temp += " ";
 		}
-		
+
 		return temp;
 	}
-	
+
 }

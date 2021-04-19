@@ -27,119 +27,119 @@ public class FileRead {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
+
 		return raw;
 
 	}
 
-	public String[] readDate() { //ë‚ ì§œ
+	public String[] readDate() { // ³¯Â¥
 		String[] date = new String[raw.size() - 1];
 
 		for (int index = 0; index < raw.size() - 1; index++) {
-			String[] raw_split = raw.get(index + 1);// ì²«ì¤„ ì œì™¸ ì½ê¸°
+			String[] raw_split = raw.get(index + 1);// Ã¹ÁÙ Á¦¿Ü ÀÐ±â
 			date[index] = raw_split[0];
 
 		}
-		
+
 		return date;
 	}
 
-	public int[] readDayNight() { //ì£¼ì•¼ê¶Œ ë„˜ë²„
+	public int[] readDayNight() { // ÁÖ¾ß±Ç ³Ñ¹ö
 		int[] dayNight = new int[raw.size() - 1];
 
 		for (int index = 0; index < raw.size() - 1; index++) {
-			String raw_day = raw.get(index + 1)[1];// ì²«ì¤„ ì œì™¸ ì½ê¸°
-			
+			String raw_day = raw.get(index + 1)[1];// Ã¹ÁÙ Á¦¿Ü ÀÐ±â
+
 			if (raw_day.equals(ConstValue.dayNight[0])) {
 				dayNight[index] = ConstValue.day;
-				
-			} else if (raw_day.equals(ConstValue.dayNight[1])){
+
+			} else if (raw_day.equals(ConstValue.dayNight[1])) {
 				dayNight[index] = ConstValue.night;
-				
+
 			}
 		}
 		return dayNight;
 
 	}
 
-	public int[] readAgeGroup() { // ë‚˜ì´ ê·¸ë£¹ ë„˜ë²„
+	public int[] readAgeGroup() { // ³ªÀÌ ±×·ì ³Ñ¹ö
 		int[] ageGroup = new int[raw.size() - 1];
 
 		for (int index = 0; index < raw.size() - 1; index++) {
-			String raw_age = raw.get(index + 1)[2];// ì²«ì¤„ ì œì™¸ ì½ê¸°
+			String raw_age = raw.get(index + 1)[2];// Ã¹ÁÙ Á¦¿Ü ÀÐ±â
 
 			if (raw_age.equals(ConstValue.ageName[0])) {
 				ageGroup[index] = ConstValue.baby;
-				
+
 			} else if (raw_age.equals(ConstValue.ageName[1])) {
 				ageGroup[index] = ConstValue.child;
-				
+
 			} else if (raw_age.equals(ConstValue.ageName[2])) {
 				ageGroup[index] = ConstValue.teen;
-				
+
 			} else if (raw_age.equals(ConstValue.ageName[3])) {
 				ageGroup[index] = ConstValue.adult;
-				
+
 			} else if (raw_age.equals(ConstValue.ageName[3])) {
 				ageGroup[index] = ConstValue.old;
-				
+
 			}
 		}
 		return ageGroup;
 
 	}
 
-	public int[] readTicket() { // í‹°ì¼“ ìž¥ ìˆ˜
+	public int[] readTicket() { // Æ¼ÄÏ Àå ¼ö
 		int[] ticket = new int[raw.size() - 1];
 
 		for (int index = 0; index < raw.size() - 1; index++) {
-			String raw_ticket = raw.get(index + 1)[3];// ì²«ì¤„ ì œì™¸ ì½ê¸°
+			String raw_ticket = raw.get(index + 1)[3];// Ã¹ÁÙ Á¦¿Ü ÀÐ±â
 			ticket[index] = Integer.parseInt(raw_ticket);
 
 		}
-		
+
 		return ticket;
 
 	}
 
-	public int[] readPrice() { //ê°€ê²©
+	public int[] readPrice() { // °¡°Ý
 		int[] price = new int[raw.size() - 1];
 
 		for (int index = 0; index < raw.size() - 1; index++) {
-			String raw_price = raw.get(index + 1)[4];// ì²«ì¤„ ì œì™¸ ì½ê¸°
+			String raw_price = raw.get(index + 1)[4];// Ã¹ÁÙ Á¦¿Ü ÀÐ±â
 			price[index] = Integer.parseInt(raw_price);
 
 		}
-		
+
 		return price;
 
 	}
 
-	public int[] readPreference() { //ìš°ëŒ€
+	public int[] readPreference() { // ¿ì´ë
 		int[] preference = new int[raw.size() - 1];
 
 		for (int index = 0; index < raw.size() - 1; index++) {
-			String raw_age = raw.get(index + 1)[5];// ì²«ì¤„ ì œì™¸ ì½ê¸°
+			String raw_age = raw.get(index + 1)[5];// Ã¹ÁÙ Á¦¿Ü ÀÐ±â
 
 			if (raw_age.equals(ConstValue.preName[0])) {
 				preference[index] = ConstValue.none;
-				
+
 			} else if (raw_age.equals(ConstValue.preName[1])) {
 				preference[index] = ConstValue.disabled;
-				
+
 			} else if (raw_age.equals(ConstValue.preName[2])) {
 				preference[index] = ConstValue.national;
-				
+
 			} else if (raw_age.equals(ConstValue.preName[3])) {
 				preference[index] = ConstValue.multiChild;
-				
+
 			} else if (raw_age.equals(ConstValue.preName[3])) {
 				preference[index] = ConstValue.pregnant;
-				
+
 			}
-			
+
 		}
-		
+
 		return preference;
 
 	}

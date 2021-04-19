@@ -5,7 +5,6 @@ import java.util.ArrayList;
 public class Main {
 
 	public static void main(String[] args) {
-		//권종별 판매현황, 일자별 매출현황, 우대권 판매형황	
 		FileRead file = new FileRead();
 		
 		String[] retDate;

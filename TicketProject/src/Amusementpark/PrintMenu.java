@@ -5,50 +5,52 @@ import java.util.ArrayList;
 public class PrintMenu {
 	CalculatePrice cal = new CalculatePrice();
 	SaveData save;
-	
-	public void dayNightOption() {//ê¶Œì¢… ì„ íƒ
-		System.out.println("#ê¶Œì¢…ì„ ì„ íƒí•˜ì„¸ìš”.\n" + "1. ì£¼ê°„ê¶Œ\n" + "2. ì•¼ê°„ê¶Œ");
+
+	public void dayNightOption() {// ±ÇÁ¾ ¼±ÅÃ
+		System.out.println("#±ÇÁ¾À» ¼±ÅÃÇÏ¼¼¿ä.\n" + "1. ÁÖ°£±Ç\n" + "2. ¾ß°£±Ç");
 	}
 
-	public void IDNumber() {//ì£¼ë¯¼ë²ˆí˜¸
-		System.out.println("#ì£¼ë¯¼ë²ˆí˜¸ë¥¼ ì…ë ¥í•˜ì„¸ìš”. (123456-1234567 : '-' ë¹¼ê³  ì…ë ¥)");
+	public void IDNumber() {// ÁÖ¹Î¹øÈ£
+		System.out.println("#ÁÖ¹Î¹øÈ£¸¦ ÀÔ·ÂÇÏ¼¼¿ä. (123456-1234567 : '-' »©°í ÀÔ·Â)");
 	}
 
 	public void ticketNumber() {
-		System.out.println("#ëª‡ ì¥ì„ ì£¼ë¬¸í•˜ì‹œê² ìŠµë‹ˆê¹Œ? (ìµœëŒ€ 10 ì¥)");
+		System.out.println("#¸î ÀåÀ» ÁÖ¹®ÇÏ½Ã°Ú½À´Ï±î? (ÃÖ´ë 10 Àå)");
 	}
 
 	public void PreferenceOption() {
 		System.out.println(
-				"#ìš°ëŒ€ì‚¬í•­ì„ ì„ íƒí•˜ì„¸ìš”.\n" + "1. ì—†ìŒ (ë‚˜ì´ ìš°ëŒ€ ìë™ì²˜ë¦¬)\n" + "2. ì¥ì• ì¸\n" + "3. êµ­ê°€ìœ ê³µì\n" + "4. ë‹¤ìë…€\n" + "5. ì„ì‚°ë¶€");
+				"#¿ì´ë»çÇ×À» ¼±ÅÃÇÏ¼¼¿ä.\n" 
+						+ "1. ¾øÀ½ (³ªÀÌ ¿ì´ë ÀÚµ¿Ã³¸®)\n" 
+						+ "2. Àå¾ÖÀÎ\n" 
+						+ "3. ±¹°¡À¯°øÀÚ\n" 
+						+ "4. ´ÙÀÚ³à\n" 
+						+ "5. ÀÓ»êºÎ");
 	}
 
 	public void priceAndMore(int price) {
-		System.out.printf("ê°€ê²©ì€ %d ì› ì…ë‹ˆë‹¤.\n", price);
-		System.out.println("ê°ì‚¬í•©ë‹ˆë‹¤.\n-------------------------");
-		System.out.println("#ê³„ì† ë°œê¶Œ í•˜ì‹œê² ìŠµë‹ˆê¹Œ?\n" + "1. í‹°ì¼“ ë°œê¶Œ\n" + "2. ì¢…ë£Œ");
+		System.out.printf("°¡°İÀº %d ¿ø ÀÔ´Ï´Ù.\n", price);
+		System.out.println("°¨»çÇÕ´Ï´Ù.\n-------------------------");
+		System.out.println("#°è¼Ó ¹ß±Ç ÇÏ½Ã°Ú½À´Ï±î?\n" + "1. Æ¼ÄÏ ¹ß±Ç\n" + "2. Á¾·á");
 	}
 
 	public void printResult(ArrayList<SaveData> saveArr, int sumPrice) {
-		
-		System.out.println("í‹°ì¼“ ë°œê¶Œì„ ì¢…ë£Œí•©ë‹ˆë‹¤. ê°ì‚¬í•©ë‹ˆë‹¤.\n\n");
-		System.out.println("========================== ì½”í¬ëœë“œ ============================");
+
+		System.out.println("Æ¼ÄÏ ¹ß±ÇÀ» Á¾·áÇÕ´Ï´Ù. °¨»çÇÕ´Ï´Ù.\n\n");
+		System.out.println("========================== ÄÚÆ÷·£µå ============================");
 
 		for (int i = 0; i < saveArr.size(); i++) {
 			SaveData print = saveArr.get(i);
-				System.out.printf("%s %s  x  %d\t%d\tìš°ëŒ€ ë‚´ì—­: %s\n", 
-						print.getDayNight(), print.getAgeGroup(),
-						print.getTicket(), print.getPrice(),
-						print.getPreference());			
+			System.out.printf("%s %s  x  %d\t%d\t¿ì´ë ³»¿ª: %s\n", print.getDayNight(), print.getAgeGroup(),
+					print.getTicket(), print.getPrice(), print.getPreference());
 		}
 
-		System.out.printf("\n\nì…ì¥ë£Œ ì´ì•¡ì€ %dì› ì…ë‹ˆë‹¤.\n", sumPrice);
+		System.out.printf("\n\nÀÔÀå·á ÃÑ¾×Àº %d¿ø ÀÔ´Ï´Ù.\n", sumPrice);
 		System.out.println("==============================================================\n\n");
 	}
 
 	public void printContinueOr() {
-		System.out.print("ê³„ì† ì§„í–‰ (1: ìƒˆë¡œìš´ ì£¼ë¬¸, 2: í”„ë¡œê·¸ë¨ ì¢…ë£Œ) : ");
+		System.out.print("°è¼Ó ÁøÇà (1: »õ·Î¿î ÁÖ¹®, 2: ÇÁ·Î±×·¥ Á¾·á) : ");
 	}
-	
 
 }

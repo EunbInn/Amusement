@@ -12,25 +12,23 @@ import java.util.ArrayList;
 import java.util.Calendar;
 
 public class FileWrite {
-	
+
 	public void fileWrite(String result) {
-		
+
 		BufferedWriter bw;
 
 		try {
 			File file = new File(SetData.filePath);
 
 			if (file.exists() == false) {
-				bw = new BufferedWriter(
-						new OutputStreamWriter(new FileOutputStream(SetData.filePath , true), "MS949"));
+				bw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(SetData.filePath, true), "MS949"));
 				bw.write(firstLine());
 				bw.write(result);
 			} else {
-				bw = new BufferedWriter(
-						new OutputStreamWriter(new FileOutputStream(SetData.filePath , true), "MS949"));
+				bw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(SetData.filePath, true), "MS949"));
 				bw.write(result);
 			}
-			
+
 			bw.close();
 
 		} catch (UnsupportedEncodingException e1) {
@@ -41,29 +39,29 @@ public class FileWrite {
 			io.getStackTrace();
 		}
 	}
-	
-	public String dateReturn() { //íŒŒì¼ ì…ë ¥í•  ë‚ ì§œ ë¦¬í„´
+
+	public String dateReturn() { // ÆÄÀÏ ÀÔ·ÂÇÒ ³¯Â¥ ¸®ÅÏ
 		Calendar cal = Calendar.getInstance();
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
-		
+
 		return sdf.format(cal.getTime());
 	}
-	//íŒŒì¼ ì…ë ¥í•  ë‚´ìš© ë¦¬í„´
-	public void resultCombine(ArrayList<SaveData> sd) { 
-		
+
+	// ÆÄÀÏ ÀÔ·ÂÇÒ ³»¿ë ¸®ÅÏ
+	public void resultCombine(ArrayList<SaveData> sd) {
+
 		for (int index = 0; index < sd.size(); index++) {
 			SaveData com = sd.get(index);
 			String writeCom = "";
-		
-			writeCom = String.format("%s,%s,%s,%d,%d,%s\n", 
-					dateReturn(), com.getDayNight(), com.getAgeGroup(), 
+
+			writeCom = String.format("%s,%s,%s,%d,%d,%s\n", dateReturn(), com.getDayNight(), com.getAgeGroup(),
 					com.getTicket(), com.getPrice(), com.getPreference());
 			fileWrite(writeCom);
 		}
 	}
 
 	public String firstLine() {
-		String first = "ë‚ ì§œ,ê¶Œì¢…,ì—°ë ¹êµ¬ë¶„,ìˆ˜ëŸ‰,ê°€ê²©,ìš°ëŒ€ì‚¬í•­\n";
+		String first = "³¯Â¥,±ÇÁ¾,¿¬·É±¸ºĞ,¼ö·®,°¡°İ,¿ì´ë»çÇ×\n";
 
 		return first;
 	}

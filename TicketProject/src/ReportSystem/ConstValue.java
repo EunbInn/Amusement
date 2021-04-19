@@ -2,20 +2,20 @@ package ReportSystem;
 
 public class ConstValue {
 
-	final static String[] ageName = {"ìœ ì•„","ì†Œì¸","ì²­ì†Œë…„","ëŒ€ì¸","ê²½ë¡œ"};
-	final static String[] preName = {"ì—†ìŒ","ì¥ì• ì¸","êµ­ê°€ìœ ê³µì","ë‹¤ìë…€","ì„ì‚°ë¶€"};
-	final static String[] dayNight = {"ì£¼ê°„ê¶Œ","ì•¼ê°„ê¶Œ"};
+	final static String[] ageName = {"À¯¾Æ","¼ÒÀÎ","Ã»¼Ò³â","´ëÀÎ","°æ·Î"};
+	final static String[] preName = {"¾øÀ½","Àå¾ÖÀÎ","±¹°¡À¯°øÀÚ","´ÙÀÚ³à","ÀÓ»êºÎ"};
+	final static String[] dayNight = {"ÁÖ°£±Ç","¾ß°£±Ç"};
 	
 	final static int day = 1;
 	final static int night = 2;
 	
-	final static int baby = 1;//ë‚˜ì´ëŒ€ë³„ ê·¸ë£¹ ë„˜ë²„ ìƒìˆ˜í™”
+	final static int baby = 1;//³ªÀÌ´ëº° ±×·ì ³Ñ¹ö »ó¼öÈ­
 	final static int child = 2;
 	final static int teen = 3;
 	final static int adult = 4;
 	final static int old = 5;
 	
-	final static int none = 1; //ìš°ëŒ€ ì¢…ë¥˜ ìƒìˆ˜í™”
+	final static int none = 1; //¿ì´ë Á¾·ù »ó¼öÈ­
 	final static int disabled = 2;
 	final static int national = 3;
 	final static int multiChild = 4;
@@ -25,6 +25,7 @@ public class ConstValue {
 	final static String fileWritePath_1 = "C:\\project\\kindReport.csv";
 	final static String fileWritePath_2 = "C:\\project\\DailyReport.csv";
 	final static String fileWritePath_3 = "C:\\project\\prefReport.csv";
+	
 	
 
 }

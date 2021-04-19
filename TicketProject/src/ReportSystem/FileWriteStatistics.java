@@ -9,19 +9,20 @@ import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 
 public class FileWriteStatistics {
-	
+
 	public void writeKind(int[] sumDay, int[] sumNight, int[] dayAge, int[] nightAge) {
-		String firstLine = "Íµ¨Î∂Ñ,Ï£ºÍ∞ÑÍ∂å,ÏïºÍ∞ÑÍ∂å\n";
+		String firstLine = "±∏∫–,¡÷∞£±«,æﬂ∞£±«\n";
 		try {
-			BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(ConstValue.fileWritePath_1),"MS949"));
+			BufferedWriter bw = new BufferedWriter(
+					new OutputStreamWriter(new FileOutputStream(ConstValue.fileWritePath_1), "MS949"));
 			bw.write(firstLine);
 			for (int i = 0; i < ConstValue.ageName.length; i++) {
-				String kindWrite = ConstValue.ageName[i] + "," + dayAge[i] + "," + nightAge[i] + "\n"; 
+				String kindWrite = ConstValue.ageName[i] + "," + dayAge[i] + "," + nightAge[i] + "\n";
 				bw.write(kindWrite);
 			}
-			bw.write("Ìï©Í≥Ñ," + sumDay[0] + "," + sumNight[0] + "\n");
-			bw.write("Îß§Ï∂ú," + sumDay[1] + "," + sumNight[1] + "\n");
-			
+			bw.write("«’∞Ë," + sumDay[0] + "," + sumNight[0] + "\n");
+			bw.write("∏≈√‚," + sumDay[1] + "," + sumNight[1] + "\n");
+
 			bw.close();
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
@@ -31,16 +32,17 @@ public class FileWriteStatistics {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public void writeDaily(ArrayList<String> date, ArrayList<Integer> sumPerDay) {
-		String firstLine = "ÏùºÏûê, Ï¥ù Îß§Ï∂ú\n";
-		
+		String firstLine = "¿œ¿⁄, √— ∏≈√‚\n";
+
 		try {
-			BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(ConstValue.fileWritePath_2),"MS949"));
+			BufferedWriter bw = new BufferedWriter(
+					new OutputStreamWriter(new FileOutputStream(ConstValue.fileWritePath_2), "MS949"));
 			bw.write(firstLine);
 			for (int i = 0; i < date.size(); i++) {
 				String dateF = DateFormat(date.get(i));
-				String dailyWrite = dateF + "," + sumPerDay.get(i) + "\n"; 
+				String dailyWrite = dateF + "," + sumPerDay.get(i) + "\n";
 				bw.write(dailyWrite);
 			}
 			bw.close();
@@ -51,31 +53,32 @@ public class FileWriteStatistics {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
+
 	}
-	
+
 	private String DateFormat(String date) {
 		String year = date.substring(0, 4);
 		String month = date.substring(4, 6);
 		String day = date.substring(6);
-		
+
 		String returnValue = year + "-" + month + "-" + day;
-		
+
 		return returnValue;
 	}
-	
+
 	public void writePref(int totalTicket, int[] prefT) {
-		String firstLine = "Ïö∞ÎåÄ Íµ¨Î∂Ñ, Í∞úÏàò\n";
-		
+		String firstLine = "øÏ¥Î ±∏∫–, ∞≥ºˆ\n";
+
 		try {
-			BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(ConstValue.fileWritePath_3),"MS949"));
+			BufferedWriter bw = new BufferedWriter(
+					new OutputStreamWriter(new FileOutputStream(ConstValue.fileWritePath_3), "MS949"));
 			bw.write(firstLine);
-			
+
 			for (int i = 0; i < ConstValue.preName.length; i++) {
-				String dailyWrite = ConstValue.preName[i] + "," + prefT[i] + "\n"; 
+				String dailyWrite = ConstValue.preName[i] + "," + prefT[i] + "\n";
 				bw.write(dailyWrite);
 			}
-			bw.write("Ìï©Í≥Ñ," + totalTicket + "\n");
+			bw.write("«’∞Ë," + totalTicket + "\n");
 			bw.close();
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
@@ -84,7 +87,7 @@ public class FileWriteStatistics {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
+
 	}
 
 }
