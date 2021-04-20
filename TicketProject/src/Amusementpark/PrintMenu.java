@@ -9,7 +9,7 @@ public class PrintMenu {
 	}
 
 	public void IDNumber() {// 주민번호
-		System.out.println("#주민번호를 입력하세요. (123456-1234567 : '-' 빼고 입력)");
+		System.out.println("#주민번호를 입력하세요. (123456-1234567 : '-' 빼고 7자리 이상 입력)");
 	}
 
 	public void ticketNumber() {

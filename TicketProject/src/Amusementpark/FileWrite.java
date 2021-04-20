@@ -22,7 +22,7 @@ public class FileWrite {
 
 			if (file.exists() == false) {
 				bw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(SetData.filePath, true), "MS949"));
-				bw.write(firstLine());
+				bw.write(SetData.firstLine);
 				bw.write(result);
 			} else {
 				bw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(SetData.filePath, true), "MS949"));
@@ -60,9 +60,4 @@ public class FileWrite {
 		}
 	}
 
-	public String firstLine() {
-		String first = "날짜,권종,연령구분,수량,가격,우대사항\n";
-
-		return first;
-	}
 }

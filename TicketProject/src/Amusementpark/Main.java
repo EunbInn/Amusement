@@ -19,7 +19,7 @@ public class Main {
 		while (true) {
 			sd = new SaveData();
 			//input
-			sd.setDayNightInt(input.inputDayNight());
+			sd.setDayNight(input.inputDayNight());
 			inputId = input.inputID();
 			sd.setTicket(input.inputTicketNum());
 			sd.setPrefInt(input.inputPreference());
@@ -27,10 +27,9 @@ public class Main {
 			//calculate age, price
 			sd.setAgeInt(calP.calculateAge(inputId)); // 나이대 그룹 넘버 리턴
 			sd.setAgeGroup(SetData.ageName[sd.getAgeInt() - 1]); //그룹이름 셋
-			sd.setDayNight(sd.getDayNightInt());
 			sd.setPreference(SetData.preName[sd.getPrefInt() - 1]); //우대여부 이름 셋
 			price = calP.calPrice(
-					sd.getDayNightInt(), sd.getAgeInt(), sd.getTicket(), sd.getPrefInt());
+					sd.getDayNight(sd.getDayNight()), sd.getAgeInt(), sd.getTicket(), sd.getPrefInt());
 			sd.setPrice(price);
 			sumPrice = calP.sumPrice(sd.getPrice()); // 가격 총합 연산
 			

@@ -8,18 +8,30 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 public class FileRead {
-	ArrayList<String[]> raw = fileReader();
+	String[] rawData = null;
 
-	public ArrayList<String[]> fileReader() {
-		ArrayList<String[]> raw = new ArrayList<String[]>();
+	public ArrayList<CustomInfo> fileReader() {
+		ArrayList<CustomInfo> custom = new ArrayList<CustomInfo>();
 		try {
 			BufferedReader br = new BufferedReader(
 					new InputStreamReader(new FileInputStream(ConstValue.filePath), "MS949"));
 
 			String line;
 
+			int i = 0;
 			while ((line = br.readLine()) != null) {
-				raw.add(line.split(","));
+				this.rawData = line.split(",");
+				if (i > 0) {
+					String date = readDate();
+					int dayNight = readDayNight();
+					int ageGroup = readAgeGroup();
+					int ticket = readTicket();
+					int price = readPrice();
+					int pref = readPreference();
+					CustomInfo info = new CustomInfo(date, dayNight, ageGroup, ticket, price, pref);
+					custom.add(info);
+				}
+				i++;
 			}
 
 		} catch (FileNotFoundException e) {
@@ -28,122 +40,101 @@ public class FileRead {
 			e.printStackTrace();
 		}
 
-		return raw;
-
+		return custom;
 	}
 
-	public String[] readDate() { // 날짜
-		String[] date = new String[raw.size() - 1];
-
-		for (int index = 0; index < raw.size() - 1; index++) {
-			String[] raw_split = raw.get(index + 1);// 첫줄 제외 읽기
-			date[index] = raw_split[ConstValue.date_n];
-
-		}
+	public String readDate() { // 날짜
+		String date = rawData[ConstValue.date_n];
 
 		return date;
 	}
 
-	public int[] readDayNight() { // 주야권 넘버
-		int[] dayNight = new int[raw.size() - 1];
+	public int readDayNight() { // 주야권 넘버
+		int dayNight = 0;
 
-		for (int index = 0; index < raw.size() - 1; index++) {
-			String raw_day = raw.get(index + 1)[ConstValue.dayNight_n];// 첫줄 제외 읽기
+		String raw_day = rawData[ConstValue.dayNight_n];
 
-			if (raw_day.equals(ConstValue.dayNight[0])) {
-				dayNight[index] = ConstValue.day;
+		if (raw_day.equals(ConstValue.dayNight[0])) {
+			dayNight = ConstValue.day;
 
-			} else if (raw_day.equals(ConstValue.dayNight[1])) {
-				dayNight[index] = ConstValue.night;
+		} else if (raw_day.equals(ConstValue.dayNight[1])) {
+			dayNight = ConstValue.night;
 
-			}
 		}
-		return dayNight;
 
+		return dayNight;
 	}
 
-	public int[] readAgeGroup() { // 나이 그룹 넘버
-		int[] ageGroup = new int[raw.size() - 1];
+	public int readAgeGroup() { // 나이 그룹 넘버
+		int ageGroup = 0;
 
-		for (int index = 0; index < raw.size() - 1; index++) {
-			String raw_age = raw.get(index + 1)[ConstValue.ageGroup_n];// 첫줄 제외 읽기
+		String raw_age = rawData[ConstValue.ageGroup_n];
 
-			if (raw_age.equals(ConstValue.ageName[0])) {
-				ageGroup[index] = ConstValue.baby;
+		if (raw_age.equals(ConstValue.ageName[0])) {
+			ageGroup = ConstValue.baby;
 
-			} else if (raw_age.equals(ConstValue.ageName[1])) {
-				ageGroup[index] = ConstValue.child;
+		} else if (raw_age.equals(ConstValue.ageName[1])) {
+			ageGroup = ConstValue.child;
 
-			} else if (raw_age.equals(ConstValue.ageName[2])) {
-				ageGroup[index] = ConstValue.teen;
+		} else if (raw_age.equals(ConstValue.ageName[2])) {
+			ageGroup = ConstValue.teen;
 
-			} else if (raw_age.equals(ConstValue.ageName[3])) {
-				ageGroup[index] = ConstValue.adult;
+		} else if (raw_age.equals(ConstValue.ageName[3])) {
+			ageGroup = ConstValue.adult;
 
-			} else if (raw_age.equals(ConstValue.ageName[4])) {
-				ageGroup[index] = ConstValue.old;
+		} else if (raw_age.equals(ConstValue.ageName[4])) {
+			ageGroup = ConstValue.old;
 
-			}
 		}
+
 		return ageGroup;
 
 	}
 
-	public int[] readTicket() { // 티켓 장 수
-		int[] ticket = new int[raw.size() - 1];
+	public int readTicket() { // 티켓 장 수
+		int ticket = 0;
 
-		for (int index = 0; index < raw.size() - 1; index++) {
-			String raw_ticket = raw.get(index + 1)[ConstValue.ticket_n];// 첫줄 제외 읽기
-			ticket[index] = Integer.parseInt(raw_ticket);
-
-		}
+		String raw_ticket = rawData[ConstValue.ticket_n];
+		ticket = Integer.parseInt(raw_ticket);
 
 		return ticket;
 
 	}
 
-	public int[] readPrice() { // 가격
-		int[] price = new int[raw.size() - 1];
+	public int readPrice() { // 가격
+		int price = 0;
 
-		for (int index = 0; index < raw.size() - 1; index++) {
-			String raw_price = raw.get(index + 1)[ConstValue.price_n];// 첫줄 제외 읽기
-			price[index] = Integer.parseInt(raw_price);
-
-		}
+		String raw_price = rawData[ConstValue.price_n];
+		price = Integer.parseInt(raw_price);
 
 		return price;
 
 	}
 
-	public int[] readPreference() { // 우대
-		int[] preference = new int[raw.size() - 1];
+	public int readPreference() { // 우대
+		int preference = 0;
 
-		for (int index = 0; index < raw.size() - 1; index++) {
-			String raw_age = raw.get(index + 1)[ConstValue.pref_n];// 첫줄 제외 읽기
+		String raw_age = rawData[ConstValue.pref_n];
 
-			if (raw_age.equals(ConstValue.preName[0])) {
-				preference[index] = ConstValue.none;
+		if (raw_age.equals(ConstValue.preName[0])) {
+			preference = ConstValue.none;
 
-			} else if (raw_age.equals(ConstValue.preName[1])) {
-				preference[index] = ConstValue.disabled;
+		} else if (raw_age.equals(ConstValue.preName[1])) {
+			preference = ConstValue.disabled;
 
-			} else if (raw_age.equals(ConstValue.preName[2])) {
-				preference[index] = ConstValue.national;
+		} else if (raw_age.equals(ConstValue.preName[2])) {
+			preference = ConstValue.national;
 
-			} else if (raw_age.equals(ConstValue.preName[3])) {
-				preference[index] = ConstValue.multiChild;
+		} else if (raw_age.equals(ConstValue.preName[3])) {
+			preference = ConstValue.multiChild;
 
-			} else if (raw_age.equals(ConstValue.preName[4])) {
-				preference[index] = ConstValue.pregnant;
-
-			}
+		} else if (raw_age.equals(ConstValue.preName[4])) {
+			preference = ConstValue.pregnant;
 
 		}
 
 		return preference;
 
 	}
-	
-	
 
 }

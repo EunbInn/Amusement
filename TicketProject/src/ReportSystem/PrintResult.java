@@ -3,21 +3,15 @@ package ReportSystem;
 import java.util.ArrayList;
 
 public class PrintResult {
-	String[] date;
-	int[] dayNight, ageGroup, ticket, price, pref;
+	ArrayList<CustomInfo> custom;
 	int[] dayTicket, nightTicket, dayAgeT, nightAgeT, prefT;
 	int totalTicket;
 	ArrayList<Integer> price_arr;
 	ArrayList<String> date_arr;
 
-	public PrintResult(SaveReadData save, int[] dayTicket, int[] nightTicket, int[] dayAgeT, int[] nightAgeT,
+	public PrintResult(ArrayList<CustomInfo> custom, int[] dayTicket, int[] nightTicket, int[] dayAgeT, int[] nightAgeT,
 			ArrayList<String> date_arr, ArrayList<Integer> price_arr, int[] prefT, int totalTicket) {
-		this.date = save.getRetDate();
-		this.dayNight = save.getRetDayNight();
-		this.ageGroup = save.getRetAgeGroup();
-		this.ticket = save.getRetTicket();
-		this.price = save.getRetPrice();
-		this.pref = save.getRetPref();	
+		this.custom = custom;
 		this.dayTicket = dayTicket;
 		this.nightTicket = nightTicket;
 		this.dayAgeT = dayAgeT;
@@ -32,9 +26,11 @@ public class PrintResult {
 		System.out.println("======================== report.csv =========================");
 		System.out.printf("%6s%7s%5s%5s%10s%11s\n", "날짜", "권종", "연령대", "수량", "가격", "우대사항");
 
-		for (int i = 0; i < date.length; i++) {
-			System.out.printf("  %8.12s%4.5s%8.8s%8.6s%15.10s%10s\n", date[i], (dayNight[i] + ""), (ageGroup[i] + ""),
-					(ticket[i] + ""), (price[i] + ""), (pref[i] + ""));
+		for (int i = 0; i < custom.size(); i++) {
+			CustomInfo info = custom.get(i);
+			System.out.printf("  %8.12s%4.5s%8.8s%8.6s%15.10s%10s\n", 
+					info.getDate(), (info.getDayNight() + ""), (info.getAgeGroup() + ""),
+					(info.getTicket() + ""), (info.getPrice() + ""), (info.getPreference() + ""));
 		}
 		System.out.println("------------------------------------------------------------");
 	}
@@ -64,7 +60,7 @@ public class PrintResult {
 
 	}
 
-	private String DateFormat(String date) {
+	private String DateFormat(String date) { //교제 내 날짜 포맷과 일치 시키기
 		String year = date.substring(0, 4);
 		String month = date.substring(4, 6);
 		String day = date.substring(6);
@@ -85,7 +81,7 @@ public class PrintResult {
 		System.out.println("----------------------------------------");
 	}
 
-	public String strForm(String str, int leng) {
+	public String strForm(String str, int leng) { //공백 동일하게 출력
 		String temp = str + "                ";
 
 		temp = temp.substring(0, leng);

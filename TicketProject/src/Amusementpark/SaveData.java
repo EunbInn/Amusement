@@ -2,7 +2,7 @@ package Amusementpark;
 
 public class SaveData {
 	private String dayNight;
-	private int dayNightInt;
+
 	private String ageGroup;
 	private int ageInt;
 	private int ticket;
@@ -22,13 +22,17 @@ public class SaveData {
 		}
 	}
 
-	public int getDayNightInt() {
-		return dayNightInt;
+	public int getDayNight(String str) {
+		int dayNight = 0;
+		if (str.equals(SetData.day)) {
+			dayNight = 1;
+		} else if (str.equals(SetData.night)) {
+			dayNight = 2;
+		}
+		return dayNight;
 	}
 
-	public void setDayNightInt(int dayNightInt) {
-		this.dayNightInt = dayNightInt;
-	}
+
 
 	public String getAgeGroup() {
 		return ageGroup;
