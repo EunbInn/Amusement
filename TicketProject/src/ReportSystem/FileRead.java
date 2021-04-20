@@ -37,7 +37,7 @@ public class FileRead {
 
 		for (int index = 0; index < raw.size() - 1; index++) {
 			String[] raw_split = raw.get(index + 1);// 첫줄 제외 읽기
-			date[index] = raw_split[0];
+			date[index] = raw_split[ConstValue.date_n];
 
 		}
 
@@ -48,7 +48,7 @@ public class FileRead {
 		int[] dayNight = new int[raw.size() - 1];
 
 		for (int index = 0; index < raw.size() - 1; index++) {
-			String raw_day = raw.get(index + 1)[1];// 첫줄 제외 읽기
+			String raw_day = raw.get(index + 1)[ConstValue.dayNight_n];// 첫줄 제외 읽기
 
 			if (raw_day.equals(ConstValue.dayNight[0])) {
 				dayNight[index] = ConstValue.day;
@@ -66,7 +66,7 @@ public class FileRead {
 		int[] ageGroup = new int[raw.size() - 1];
 
 		for (int index = 0; index < raw.size() - 1; index++) {
-			String raw_age = raw.get(index + 1)[2];// 첫줄 제외 읽기
+			String raw_age = raw.get(index + 1)[ConstValue.ageGroup_n];// 첫줄 제외 읽기
 
 			if (raw_age.equals(ConstValue.ageName[0])) {
 				ageGroup[index] = ConstValue.baby;
@@ -80,7 +80,7 @@ public class FileRead {
 			} else if (raw_age.equals(ConstValue.ageName[3])) {
 				ageGroup[index] = ConstValue.adult;
 
-			} else if (raw_age.equals(ConstValue.ageName[3])) {
+			} else if (raw_age.equals(ConstValue.ageName[4])) {
 				ageGroup[index] = ConstValue.old;
 
 			}
@@ -93,7 +93,7 @@ public class FileRead {
 		int[] ticket = new int[raw.size() - 1];
 
 		for (int index = 0; index < raw.size() - 1; index++) {
-			String raw_ticket = raw.get(index + 1)[3];// 첫줄 제외 읽기
+			String raw_ticket = raw.get(index + 1)[ConstValue.ticket_n];// 첫줄 제외 읽기
 			ticket[index] = Integer.parseInt(raw_ticket);
 
 		}
@@ -106,7 +106,7 @@ public class FileRead {
 		int[] price = new int[raw.size() - 1];
 
 		for (int index = 0; index < raw.size() - 1; index++) {
-			String raw_price = raw.get(index + 1)[4];// 첫줄 제외 읽기
+			String raw_price = raw.get(index + 1)[ConstValue.price_n];// 첫줄 제외 읽기
 			price[index] = Integer.parseInt(raw_price);
 
 		}
@@ -119,7 +119,7 @@ public class FileRead {
 		int[] preference = new int[raw.size() - 1];
 
 		for (int index = 0; index < raw.size() - 1; index++) {
-			String raw_age = raw.get(index + 1)[5];// 첫줄 제외 읽기
+			String raw_age = raw.get(index + 1)[ConstValue.pref_n];// 첫줄 제외 읽기
 
 			if (raw_age.equals(ConstValue.preName[0])) {
 				preference[index] = ConstValue.none;
@@ -133,7 +133,7 @@ public class FileRead {
 			} else if (raw_age.equals(ConstValue.preName[3])) {
 				preference[index] = ConstValue.multiChild;
 
-			} else if (raw_age.equals(ConstValue.preName[3])) {
+			} else if (raw_age.equals(ConstValue.preName[4])) {
 				preference[index] = ConstValue.pregnant;
 
 			}
@@ -143,5 +143,7 @@ public class FileRead {
 		return preference;
 
 	}
+	
+	
 
 }

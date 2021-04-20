@@ -6,16 +6,15 @@ import java.util.HashSet;
 
 public class CalculateMethods {
 	String[] date;
-	int[] dayNight, rpref, ticket, price, pref;
+	int[] dayNight, ageGroup, ticket, price, pref;
 	
-	public CalculateMethods(String[] retDate, int[]retDayNight, int[]retAgeGroup,
-			int[]retTicket, int[]retPrice, int[]retPref) {
-		this.date = retDate;
-		this.dayNight = retDayNight;
-		this.rpref = retAgeGroup;
-		this.ticket = retTicket;
-		this.price = retPrice;
-		this.pref = retPref;		
+	public CalculateMethods(SaveReadData save) {
+		this.date = save.getRetDate();
+		this.dayNight = save.getRetDayNight();
+		this.ageGroup = save.getRetAgeGroup();
+		this.ticket = save.getRetTicket();
+		this.price = save.getRetPrice();
+		this.pref = save.getRetPref();		
 	}
 	
 	public ArrayList<Integer> CalPerDay() {
@@ -97,19 +96,19 @@ public class CalculateMethods {
 		int oldSum = 0;
 		
 		for (int i = 0; i < dayNight.length; i++) {
-			if (rpref[i] == ConstValue.baby && dayNight[i] == ConstValue.day) {
+			if (ageGroup[i] == ConstValue.baby && dayNight[i] == ConstValue.day) {
 				babySum += ticket[i];
 				
-			} else if (rpref[i] == ConstValue.child && dayNight[i] == ConstValue.day) {
+			} else if (ageGroup[i] == ConstValue.child && dayNight[i] == ConstValue.day) {
 				childSum += ticket[i];
 				
-			} else if (rpref[i] == ConstValue.teen && dayNight[i] == ConstValue.day) {
+			} else if (ageGroup[i] == ConstValue.teen && dayNight[i] == ConstValue.day) {
 				teenSum += ticket[i];
 				
-			} else if (rpref[i] == ConstValue.adult && dayNight[i] == ConstValue.day) {
+			} else if (ageGroup[i] == ConstValue.adult && dayNight[i] == ConstValue.day) {
 				adultSum += ticket[i];
 				
-			} else if (rpref[i] == ConstValue.old && dayNight[i] == ConstValue.day) {
+			} else if (ageGroup[i] == ConstValue.old && dayNight[i] == ConstValue.day) {
 				oldSum += ticket[i];
 				
 			}
@@ -135,19 +134,19 @@ public class CalculateMethods {
 		int oldSum = 0;
 		
 		for (int i = 0; i < dayNight.length; i++) {
-			if (rpref[i] == ConstValue.baby && dayNight[i] == ConstValue.night) {
+			if (ageGroup[i] == ConstValue.baby && dayNight[i] == ConstValue.night) {
 				babySum += ticket[i];
 				
-			} else if (rpref[i] == ConstValue.child && dayNight[i] == ConstValue.night) {
+			} else if (ageGroup[i] == ConstValue.child && dayNight[i] == ConstValue.night) {
 				childSum += ticket[i];
 				
-			} else if (rpref[i] == ConstValue.teen && dayNight[i] == ConstValue.night) {
+			} else if (ageGroup[i] == ConstValue.teen && dayNight[i] == ConstValue.night) {
 				teenSum += ticket[i];
 				
-			} else if (rpref[i] == ConstValue.adult && dayNight[i] == ConstValue.night) {
+			} else if (ageGroup[i] == ConstValue.adult && dayNight[i] == ConstValue.night) {
 				adultSum += ticket[i];
 				
-			} else if (rpref[i] == ConstValue.old && dayNight[i] == ConstValue.night) {
+			} else if (ageGroup[i] == ConstValue.old && dayNight[i] == ConstValue.night) {
 				oldSum += ticket[i];
 				
 			}

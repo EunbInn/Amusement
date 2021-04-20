@@ -10,15 +10,14 @@ public class PrintResult {
 	ArrayList<Integer> price_arr;
 	ArrayList<String> date_arr;
 
-	public PrintResult(String[] retDate, int[] retDayNight, int[] retAgeGroup, int[] retTicket, int[] retPrice,
-			int[] retPref, int[] dayTicket, int[] nightTicket, int[] dayAgeT, int[] nightAgeT,
+	public PrintResult(SaveReadData save, int[] dayTicket, int[] nightTicket, int[] dayAgeT, int[] nightAgeT,
 			ArrayList<String> date_arr, ArrayList<Integer> price_arr, int[] prefT, int totalTicket) {
-		this.date = retDate;
-		this.dayNight = retDayNight;
-		this.ageGroup = retAgeGroup;
-		this.ticket = retTicket;
-		this.price = retPrice;
-		this.pref = retPref;
+		this.date = save.getRetDate();
+		this.dayNight = save.getRetDayNight();
+		this.ageGroup = save.getRetAgeGroup();
+		this.ticket = save.getRetTicket();
+		this.price = save.getRetPrice();
+		this.pref = save.getRetPref();	
 		this.dayTicket = dayTicket;
 		this.nightTicket = nightTicket;
 		this.dayAgeT = dayAgeT;

@@ -24,7 +24,10 @@ public class Main {
 		retPrice = file.readPrice();
 		retPref = file.readPreference();
 		
-		//calculate data to print and to write on file		CalculateMethods cal = new CalculateMethods(				retDate, retDayNight, retAgeGroup, retTicket, retPrice, retPref);
+		SaveReadData save = new SaveReadData(
+				retDate, retDayNight, retAgeGroup, retTicket, retPrice, retPref);
+		
+		//calculate data to print and to write on file		CalculateMethods cal = new CalculateMethods(save);
 		
 		calPerDay = cal.CalPerDay();
 		sortedDate = cal.getSortedDate();
@@ -37,9 +40,8 @@ public class Main {
 		calPrePrefT = cal.calPreferenceTicket();
 		
 		//print result
-		PrintResult print = new PrintResult(retDate, retDayNight, retAgeGroup, retTicket, retPrice, retPref,
-					dayTicket, nightTicket, dayAgeT, nightAgeT, sortedDate, calPerDay, 
-				calPrePrefT, totalTicket);
+		PrintResult print = new PrintResult(save, dayTicket, nightTicket, dayAgeT, nightAgeT, 
+				sortedDate, calPerDay, calPrePrefT, totalTicket);
 		
 		print.printAll();
 		print.ticketSaleStatus();
