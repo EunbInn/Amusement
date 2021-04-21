@@ -15,15 +15,13 @@ public class DBwrite {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 
-			Connection con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/testdb", SetData.admingId,
-					SetData.adminPw);
+			Connection con = DriverManager.getConnection(SetData.dbPath, SetData.admingId, SetData.adminPw);
 
 			Statement stat = con.createStatement();
 			stat.execute(result);
-			ResultSet rs = stat.executeQuery("select * from `new`");
-			while(rs.next()) {
-				System.out.println(rs.getString(2));
-			}
+			
+			stat.close();
+			con.close();
 
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -32,24 +30,26 @@ public class DBwrite {
 			e1.printStackTrace();
 		}
 	}
-	
-	public String dateReturn() { // 파일 입력할 날짜 리턴
+
+	public String dateReturn() { // DB 입력할 날짜 리턴
 		Calendar cal = Calendar.getInstance();
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
 
 		return sdf.format(cal.getTime());
 	}
 
-	// 파일 입력할 내용 리턴
+	// DB 입력할 내용 리턴
 	public void resultFormat(ArrayList<SaveData> sd) {
 
 		for (int index = 0; index < sd.size(); index++) {
 			SaveData com = sd.get(index);
 			String writeCom = "";
 
-			writeCom = String.format("INSERT INTO `new`(`DATE`, `DayNight`, `AgeGroup`, `TicketNumber`, `Price`, `Advantage`) "
-					+ "VALUES ('%s','%s','%s','%d','%d','%s')",dateReturn(),com.getDayNight(),com.getAgeGroup(),
-					com.getTicket(), com.getPrice(), com.getPreference());
+			writeCom = String.format(
+							"INSERT INTO `new`(`DATE`, `DayNight`, `AgeGroup`, `TicketNumber`, `Price`, `Advantage`) "
+							+ "VALUES ('%s','%s','%s','%d','%d','%s')",
+							dateReturn(), com.getDayNight(), com.getAgeGroup(), 
+							com.getTicket(), com.getPrice(),com.getPreference());
 			dbWrite(writeCom);
 		}
 	}
