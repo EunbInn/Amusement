@@ -34,4 +34,8 @@ public class SetData {
 	final static String firstLine = "날짜,권종,연령구분,수량,가격,우대사항\n";
 
 	final static String filePath = "amuse.csv"; // 파일경로
+	
+	final static String dbPath = "jdbc:mysql://127.0.0.1:3306/testdb";
+	final static String admingId = "root";
+	final static String adminPw = "1234567";
 }

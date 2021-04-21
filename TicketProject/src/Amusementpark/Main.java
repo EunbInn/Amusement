@@ -13,6 +13,7 @@ public class Main {
 		PrintMenu pm = new PrintMenu();
 		GetInput input = new GetInput();
 		FileWrite fw = new FileWrite();
+		DBwrite dw = new DBwrite();
 		CalculatePrice calP = new CalculatePrice();
 		SaveData sd = null;
 
@@ -40,7 +41,7 @@ public class Main {
 			inputMore = input.inputMore(sd.getPrice()); 
 
 			fw.resultCombine(saveArr); // 결과값 합쳐서 file write 하기
-
+			dw.resultFormat(saveArr); //결과값 합쳐서 DB에 write 하기
 			if (inputMore == 2) {
 				pm.printResult(saveArr, sumPrice);
 				saveArr = new ArrayList<SaveData>(); // array 초기화
