@@ -37,5 +37,5 @@ public class SetData {
 	
 	final static String dbPath = "jdbc:mysql://127.0.0.1:3306/testdb";
 	final static String admingId = "root";
-	final static String adminPw = "qlalf0112";
+	final static String adminPw = "1234567";
 }
